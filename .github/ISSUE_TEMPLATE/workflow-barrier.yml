@@ -1,0 +1,63 @@
+name: Creative workflow barrier
+description: Document a device or application burden without submitting private files or health information.
+title: "[Barrier]: "
+labels:
+  - accessibility
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the task and interface behavior. Do not upload private files, messages, diagnoses, or another person's identifying information.
+  - type: textarea
+    id: intent
+    attributes:
+      label: What were you trying to make or do?
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Device, operating system, and application
+      placeholder: Example: iPad, iPadOS, Files and a recording app
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What did the interface require?
+      description: List observable steps, formats, choices, or information you had to remember.
+    validations:
+      required: true
+  - type: textarea
+    id: known
+    attributes:
+      label: What information did the system already have?
+    validations:
+      required: true
+  - type: textarea
+    id: recovery
+    attributes:
+      label: What would a respectful recovery path look like?
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Relationship to the report
+      options:
+        - My own experience
+        - Consented research observation
+        - Publicly documented provider behavior
+        - General design proposal
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Publication check
+      options:
+        - label: I removed private files, messages, contact details, and unnecessary identifying information.
+          required: true
+        - label: I understand that submitting this issue makes its contents public.
+          required: true
+
