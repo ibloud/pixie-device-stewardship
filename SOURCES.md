@@ -11,6 +11,10 @@ Accessed September 12, 2026.
 
 W3C cognitive-accessibility patterns are supplemental guidance, not WCAG conformance requirements. PIXIE uses them as design references rather than claiming certification.
 
+## Event
+
+- OpenAI Academy, [AI Skills Jam for Older Adults — Twin Cities, MN](https://academy.openai.com/public/events/ai-skills-jam-for-older-adults-twin-cities-mn-rnt55ha8bt), event scheduled for September 16, 2026 at the Heritage Center of Brooklyn Center; workshop 9:00 a.m.–12:00 p.m. CDT with optional practice and Q&A until 1:00 p.m.
+
 ## Provider channels
 
 - Apple, [Product Feedback](https://www.apple.com/feedback/). Public entry point for hardware and software feedback.
