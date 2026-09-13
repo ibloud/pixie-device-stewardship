@@ -27,7 +27,7 @@ See [HYPOTHESIS.md](HYPOTHESIS.md).
 
 The initial campaign focuses on music, video, game development, design, and independent creative studios. These workflows make the problem visible quickly: many files, many applications, many versions, many collaborators, and frequent context switching.
 
-The first concrete specification is the [Artist File Protocol](ARTIST-FILE-PROTOCOL.md).
+The first concrete specification is the [Artist File Protocol](ARTIST-FILE-PROTOCOL.md). Phase 2 extends the same stewardship principles to private health-record orientation without turning PIXIE into a clinical system or public health profile.
 
 ## Evidence labels
 
@@ -47,6 +47,7 @@ These labels prevent personal experience, interpretation, and product claims fro
 - [METHODOLOGY.md](METHODOLOGY.md) — consent-first research and testing
 - [ARTIST-FILE-PROTOCOL.md](ARTIST-FILE-PROTOCOL.md) — human-language creative-file intake
 - [SAFETY-AND-PRIVACY.md](SAFETY-AND-PRIVACY.md) — prohibited behaviors and data boundaries
+- [PHASE-2-HEALTH-STEWARDSHIP.md](PHASE-2-HEALTH-STEWARDSHIP.md) — private health-record access and rollout boundary
 - [CAMPAIGN.md](CAMPAIGN.md) — Apple-first, cross-platform change strategy
 - [SOURCES.md](SOURCES.md) — official guidance and submission channels
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — constructive participation rules
