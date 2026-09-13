@@ -1,6 +1,7 @@
 # Made Sick Integration Recommendation
 
 ## Decision
+**Status:** Implemented 2026-09-12. Section live in `ibloud/made-sick` README and index.html.
 
 Add PIXIE to made-sick.org, but as a focused **Technology & Creative Access** program—not as a therapist dashboard or a general claim that Made Sick can determine mental state.
 
