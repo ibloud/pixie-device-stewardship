@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11132b">
+  <meta name="description" content="PIXIE Alexa+ hackathon development status, cost model, rules fit, and delivery gates.">
+  <meta property="og:title" content="PIXIE — Amazon Hackathon Development Status">
+  <meta property="og:description" content="A transparent plan for turning PIXIE's accessibility research into a working Alexa+ prototype.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ibloud.github.io/pixie-device-stewardship/hackathon.html">
+  <title>PIXIE — Hackathon Development Status</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="PIXIE home">
+      <span class="pixie-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span><strong>PIXIE</strong><small>hackathon build</small></span>
+    </a>
+    <nav aria-label="Page navigation">
+      <a href="#status">Status</a>
+      <a href="#costs">Costs</a>
+      <a href="#rules">Rules fit</a>
+      <a href="#forward">Forward path</a>
+    </nav>
+    <a class="button button-small" href="https://amazonappdev2026.devpost.com/">Devpost <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main" class="hackathon-page">
+    <section class="hackathon-hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Registered · Alexa+ primary track · submissions close October 23, 2026</p>
+        <h1 id="page-title">From documented need to a working steward.</h1>
+        <p class="lede">This page makes the build legible: what existed before the competition, what must be created during it, what the work costs, what the prizes could return, and which rules govern the boundary.</p>
+      </div>
+      <aside class="status-card compact" aria-label="Current competition status">
+        <div class="status-top"><span>DEV / 001</span><span class="status">SCOPING</span></div>
+        <p class="signal">Primary track<br>Alexa+</p>
+        <dl>
+          <div><dt>Registration</dt><dd>complete</dd></div>
+          <div><dt>Rules</dt><dd>acknowledged</dd></div>
+          <div><dt>Prototype</dt><dd>not started</dd></div>
+          <div><dt>Submission</dt><dd>not submitted</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section id="status" class="dev-section" aria-labelledby="status-title">
+      <div class="section-heading">
+        <p class="eyebrow">Development status</p>
+        <h2 id="status-title">The prior work is the foundation—not the contest deliverable.</h2>
+        <p class="lede">Before August 31, PIXIE documented the accessibility hypothesis, Artist File Protocol, consent boundaries, governance, research method, and public explanation. The qualifying update must be substantial, functional, visible in code, and demonstrated during the submission period.</p>
+      </div>
+      <div class="status-grid">
+        <article><span>Complete</span><h3>Research foundation</h3><p>Accessibility thesis, provenance labels, file-stewardship protocol, privacy boundaries, and public site.</p></article>
+        <article><span>Next</span><h3>Working Alexa+ surface</h3><p>A self-hosted MCP server using Streamable HTTP and MCP specification 2025-11-25 or later.</p></article>
+        <article><span>Next</span><h3>Consent-first workflow</h3><p>Describe intent, preview a proposed file action, approve or reject it, preserve provenance, and undo safely.</p></article>
+        <article><span>Required</span><h3>Evidence package</h3><p>Automated tests, setup instructions, accessibility checks, friction log, public demonstration, and change record.</p></article>
+      </div>
+    </section>
+
+    <section id="costs" class="dev-section" aria-labelledby="costs-title">
+      <div class="section-heading">
+        <p class="eyebrow">Planning estimate · not an invoice or guarantee</p>
+        <h2 id="costs-title">The build has a real labor cost.</h2>
+        <p class="lede">The model uses a $75/hour planning rate to make Dominique Devereaux's systems-architecture and development contribution visible. Actual time, contractor rates, taxes, and benefits treatment may differ.</p>
+      </div>
+      <div class="table-wrap" role="region" aria-label="Projected labor costs" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">Workstream</th><th scope="col">Hours</th><th scope="col">Labor value</th><th scope="col">Exit evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Scope and Alexa+ architecture</td><td>8–12</td><td>$600–$900</td><td>Accepted technical scope</td></tr>
+            <tr><td>MCP server and Streamable HTTP</td><td>28–36</td><td>$2,100–$2,700</td><td>Runnable server and tools</td></tr>
+            <tr><td>Consent, state, provenance, undo</td><td>20–28</td><td>$1,500–$2,100</td><td>End-to-end safe workflow</td></tr>
+            <tr><td>Accessible web simulation</td><td>18–24</td><td>$1,350–$1,800</td><td>Keyboard/mobile demo</td></tr>
+            <tr><td>Tests, threat model, privacy review</td><td>16–22</td><td>$1,200–$1,650</td><td>Passing tests and review notes</td></tr>
+            <tr><td>Documentation and friction log</td><td>12–16</td><td>$900–$1,200</td><td>Judge-ready repository</td></tr>
+            <tr><td>Demo video and submission</td><td>10–14</td><td>$750–$1,050</td><td>Public video under 3 minutes</td></tr>
+            <tr><td>Contingency and accessibility QA</td><td>8–12</td><td>$600–$900</td><td>Resolved critical defects</td></tr>
+          </tbody>
+          <tfoot><tr><th scope="row">Projected total</th><td>120–164</td><td>$9,000–$12,300</td><td>Working, testable submission</td></tr></tfoot>
+        </table>
+      </div>
+
+      <div class="cost-cards">
+        <article><p class="eyebrow">Direct cash</p><h3>$0–$550</h3><p>Expected range for hosting overages, testing, captions, media, or specialist review. Existing GitHub Pages and open-source tools keep the floor low.</p></article>
+        <article><p class="eyebrow">AWS support</p><h3>Up to $150 credits</h3><p>Available by request while supplies last. Credits are not cash and charges beyond them remain the entrant's responsibility.</p></article>
+        <article><p class="eyebrow">Unpriced need</p><h3>Human review</h3><p>Security, accessibility, legal, benefits, and lived-experience review should be compensated when possible rather than treated as free support.</p></article>
+      </div>
+
+      <div class="table-wrap" role="region" aria-label="Alexa Plus prize comparison" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">Outcome</th><th scope="col">Cash</th><th scope="col">Compared with midpoint labor value</th><th scope="col">Project movement</th></tr></thead>
+          <tbody>
+            <tr><td>No prize</td><td>$0</td><td>Does not repay labor</td><td>Working open-source prototype, evidence, feedback, and partnership asset</td></tr>
+            <tr><td>Third place</td><td>$4,000</td><td>About $6,650 below $10,650 midpoint</td><td>Offsets part of labor; adds $1,000 AWS credits and exposure</td></tr>
+            <tr><td>Second place</td><td>$15,000</td><td>About $4,350 above midpoint before tax/costs</td><td>Funds stabilization and user testing; adds $5,000 AWS credits</td></tr>
+            <tr><td>First place</td><td>$25,000</td><td>About $14,350 above midpoint before tax/costs</td><td>Supports security/accessibility review and a partner-ready pilot; adds $15,000 AWS credits and an Amazon meeting</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="synthetic-note"><strong>Financial boundary:</strong> prizes are uncertain and are not the project budget. Cash, credits, equipment, and contractor or self-employment income may require tax and public-benefit review before acceptance or spending.</p>
+    </section>
+
+    <section id="rules" class="dev-section rules-fit" aria-labelledby="rules-title">
+      <div class="section-heading">
+        <p class="eyebrow">Rules-fit determination</p>
+        <h2 id="rules-title">File stewardship does not conflict with the hackathon.</h2>
+        <p class="lede">It is the user problem. The compliance question is whether the new submission is a working Amazon-track application rather than a pre-existing documentation project.</p>
+      </div>
+      <div class="fit-grid">
+        <article class="fit"><h3>Fits</h3><ul><li>Alexa+ permits a working Agent Skill or self-hosted MCP server.</li><li>An optional web simulation may demonstrate the Alexa+ experience.</li><li>The open-source mini challenge aligns with PIXIE's public repository and licenses.</li><li>The project addresses a specific customer need and a credible audience.</li></ul></article>
+        <article class="risk"><h3>Must be controlled</h3><ul><li>Document every significant feature built after August 31.</li><li>Show runtime behavior in code and in the video—not only in documentation.</li><li>Use synthetic files in public tests and demos.</li><li>Do not include unlicensed media, trademarks, private correspondence, or health records.</li><li>Keep the project freely testable through the judging period.</li></ul></article>
+      </div>
+      <p><strong>Decision:</strong> proceed with Alexa+ and the Open Source mini challenge. Keep the Artist File Protocol as the domain model, implement one reversible file-intent workflow, and maintain a dated change ledger separating pre-hackathon materials from competition work.</p>
+    </section>
+
+    <section id="forward" class="dev-section forward" aria-labelledby="forward-title">
+      <div class="section-heading">
+        <p class="eyebrow">How this moves PIXIE forward</p>
+        <h2 id="forward-title">A submission is useful even without a prize.</h2>
+      </div>
+      <ol class="route light">
+        <li><span>01</span><div><strong>Convert the specification</strong><p>Turn the Artist File Protocol into callable, testable behavior.</p></div></li>
+        <li><span>02</span><div><strong>Establish implementation evidence</strong><p>Show that consent, provenance, undo, and re-entry work as product behavior.</p></div></li>
+        <li><span>03</span><div><strong>Generate structured feedback</strong><p>Preserve onboarding friction and feature requests for Amazon and future partners.</p></div></li>
+        <li><span>04</span><div><strong>Create a partnership asset</strong><p>Use the prototype, cost model, and demo in research, accessibility, and product conversations.</p></div></li>
+      </ol>
+      <div class="event-actions">
+        <a class="button" href="https://github.com/ibloud/pixie-device-stewardship">Inspect the repository <span aria-hidden="true">↗</span></a>
+        <a class="button button-ghost" href="ARTIST-FILE-PROTOCOL.md">Read the protocol <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html"><span class="pixie-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span><strong>PIXIE</strong><small>by Loptr Lab</small></span></a>
+    <p>People over profit · Accessibility first · Labor made visible</p>
+    <p class="fine-print">Planning estimates are provisional. Official Devpost rules and current website information prevail.</p>
+  </footer>
+</body>
+</html>
