@@ -27,7 +27,7 @@ See [HYPOTHESIS.md](HYPOTHESIS.md).
 
 The initial campaign focuses on music, video, game development, design, and independent creative studios. These workflows make the problem visible quickly: many files, many applications, many versions, many collaborators, and frequent context switching.
 
-The first concrete specification is the [Artist File Protocol](ARTIST-FILE-PROTOCOL.md).
+The first concrete specification is the [Artist File Protocol](ARTIST-FILE-PROTOCOL.md). Phase 2 extends the same stewardship principles to private health-record orientation without turning PIXIE into a clinical system or public health profile.
 
 ## Evidence labels
 
@@ -47,6 +47,12 @@ These labels prevent personal experience, interpretation, and product claims fro
 - [METHODOLOGY.md](METHODOLOGY.md) — consent-first research and testing
 - [ARTIST-FILE-PROTOCOL.md](ARTIST-FILE-PROTOCOL.md) — human-language creative-file intake
 - [SAFETY-AND-PRIVACY.md](SAFETY-AND-PRIVACY.md) — prohibited behaviors and data boundaries
+- [PHASE-2-HEALTH-STEWARDSHIP.md](PHASE-2-HEALTH-STEWARDSHIP.md) — private health-record access and rollout boundary
+- [EVENT-PLAYBOOK.md](EVENT-PLAYBOOK.md) — a low-load preparation and follow-up plan for the Twin Cities AI Skills Jam
+- [CASE-STUDY-AI-SKILLS-JAM.md](CASE-STUDY-AI-SKILLS-JAM.md) — a privacy-protected case study for facilitators and potential partners
+- [OPPORTUNITY-CREATION-PATH.md](OPPORTUNITY-CREATION-PATH.md) — a reusable path from lived barrier to bounded opportunity
+- [PARTNERSHIP-BRIEF.md](PARTNERSHIP-BRIEF.md) — roles, asks, rights, and partnership boundaries
+- [outreach/EVENT-CONTACT-TEMPLATE.md](outreach/EVENT-CONTACT-TEMPLATE.md) — a private-use, consent-based follow-up template
 - [CAMPAIGN.md](CAMPAIGN.md) — Apple-first, cross-platform change strategy
 - [SOURCES.md](SOURCES.md) — official guidance and submission channels
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — constructive participation rules
