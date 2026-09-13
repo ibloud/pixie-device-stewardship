@@ -153,3 +153,44 @@ footer p { margin: 0; font: 750 .72rem var(--mono); text-align: right; }
 @media (max-width: 880px) {
   .steward-grid { grid-template-columns: 1fr; }
 }
+
+
+.event-brief {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr);
+  gap: 2rem;
+  align-items: start;
+  padding: 3.5rem clamp(1.25rem, 5vw, 5rem);
+  background: #eef8ff;
+  border-block: 1px solid #cce5f5;
+}
+
+.event-brief h2,
+.event-brief h3 {
+  margin-top: 0;
+}
+
+.event-brief aside {
+  padding: 1.5rem;
+  border: 1px solid #bad9eb;
+  border-radius: 1rem;
+  background: var(--white);
+  box-shadow: 0 0.75rem 2rem rgba(17, 19, 43, 0.08);
+}
+
+.event-brief ol {
+  padding-left: 1.35rem;
+}
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 760px) {
+  .event-brief {
+    grid-template-columns: 1fr;
+  }
+}
