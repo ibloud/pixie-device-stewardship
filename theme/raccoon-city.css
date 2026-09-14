@@ -1,0 +1,125 @@
+/*
+ * PIXIE atmospheric theme layer
+ *
+ * Companion layer for the existing website stylesheet.
+ * This is intentionally additive: it does not replace the working layout.
+ * Reference: desaturated industrial / quarantined civic atmosphere.
+ */
+
+:root {
+  --pixie-ash: #111214;
+  --pixie-charcoal: #1b1d1f;
+  --pixie-concrete: #2a2b2b;
+  --pixie-dust: #3a342e;
+  --pixie-mahogany: #352824;
+  --pixie-blue-green: #52615e;
+  --pixie-oxidized: #61766c;
+  --pixie-red: #a33a34;
+  --pixie-red-bright: #c34b43;
+  --pixie-paper: #e5e1d8;
+  --pixie-muted: #a8a39a;
+  --pixie-line: rgba(229, 225, 216, 0.16);
+}
+
+/* Page substrate */
+body {
+  background:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.014) 1px, transparent 1px),
+    var(--pixie-ash);
+  background-size: 28px 28px;
+  color: var(--pixie-paper);
+}
+
+.site-header {
+  border-bottom-color: var(--pixie-line);
+}
+
+/* Research/archive surfaces */
+.status-card,
+.demo-shell,
+.demo-header,
+.message-bubble,
+.audience-tags span,
+.demo-input,
+.lang-btn {
+  background-color: var(--pixie-charcoal);
+  border-color: var(--pixie-line);
+}
+
+.demo-header {
+  background-color: var(--pixie-concrete);
+}
+
+.demo-provenance,
+.filename-proposal,
+.resume-note-preview {
+  background-color: rgba(0, 0, 0, .28);
+  border-color: rgba(229, 225, 216, .24);
+}
+
+/* Emergency red = attention, not decoration */
+.sim-pill,
+.status-top .status,
+.eyebrow,
+.prov-note,
+.hero h1 em {
+  color: var(--pixie-red-bright);
+}
+
+.button,
+.button.primary,
+.demo-choice.primary {
+  background: var(--pixie-red);
+  border-color: #171717;
+}
+
+.button:hover,
+.demo-choice.primary:hover {
+  background: var(--pixie-red-bright);
+}
+
+/* Evidence / stable-state signal */
+.text-link,
+.demo-step.done,
+.filename-proposal {
+  color: var(--pixie-oxidized);
+}
+
+/* Industrial metadata */
+.prov-label,
+.prov-key,
+.brand small,
+nav a,
+.lede,
+.status-top,
+.demo-title-bar,
+.demo-step {
+  color: var(--pixie-muted);
+}
+
+/* Keep the simulation disclosure visibly separate from the environment. */
+.sim-banner {
+  background: var(--pixie-paper);
+  color: var(--pixie-ash);
+  border-bottom-color: var(--pixie-red);
+}
+
+.sim-pill {
+  background: var(--pixie-red);
+  color: var(--pixie-paper);
+}
+
+/* Focus remains explicit for accessibility. */
+:focus-visible {
+  outline: 3px solid var(--pixie-red-bright);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

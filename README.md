@@ -29,6 +29,31 @@ The initial campaign focuses on music, video, game development, design, and inde
 
 The first concrete specification is the [Artist File Protocol](ARTIST-FILE-PROTOCOL.md). Phase 2 extends the same stewardship principles to private health-record orientation without turning PIXIE into a clinical system or public health profile.
 
+## PIXIE OS integration
+
+The research specification is paired with an executable integration and test-bench implementation in [`ibloud/pixie-holdings`](https://github.com/ibloud/pixie-holdings). The two repositories have different jobs and should remain separate:
+
+- **This repository (`pixie-device-stewardship`) is canonical for PIXIE research, evidence boundaries, methodology, safety, and specification.**
+- **`pixie-holdings` is the executable integration surface:** a PIXIE OS desktop/test bench where stewardship behavior, consent gates, previews, rollback receipts, ecosystem links, and MCP-oriented workflows can be exercised.
+- **`ibloud/made-sick` is the public campaign and participation surface.** It can introduce PIXIE, invite bounded participation, and connect people to the research without becoming the canonical technical repository.
+- **`narrative-provenance` remains a private creator-controlled memory layer.** Private narrative material is not automatically part of the public ecosystem record.
+- **`duet-engine-architecture` remains a staged architecture repository rather than a second canonical PIXIE specification.**
+
+This separation is intentional. PIXIE is influenced by other creative, accessibility, game, cinematic, and interface worlds, but those influences are not separate competing systems. The goal is a coherent ecosystem in which each repository contributes a distinct layer while preserving clear evidence, consent, provenance, and ownership boundaries.
+
+### PIXIE Holdings visual and interaction companion
+
+`pixie-holdings` uses a darker, more weathered environmental language as a visual companion to this research repository. Its palette can draw from the atmosphere of quarantined civic and industrial spaces: desaturated charcoal, concrete grey, dusty brown, ash, oxidized metal, muted blue-green, and restrained emergency red, with small high-contrast signals for status and action.
+
+This is a **thematic complement, not a literal franchise reproduction**. The visual language may evoke survival-horror, institutional, industrial, and ruined-urban environments while remaining an original PIXIE system. The purpose is to make the test bench feel like a place where system machinery, evidence, risk, and recovery are visible—not to imitate another world's characters, marks, story, or assets.
+
+The visual relationship should therefore remain complementary:
+
+> **PIXIE Device Stewardship** defines why the system should remember, what evidence means, and what boundaries must hold.  
+> **PIXIE Holdings** lets those principles become an inspectable, consent-first system surface.
+
+The worlds around PIXIE can influence its vocabulary—industrial spaces, archival interfaces, emergency instrumentation, creative tools, public campaigns—but they fit together through shared stewardship rules rather than through a single borrowed aesthetic. The common substrate is user control, explicit consent, reversible action, provenance, uncertainty made visible, and no silent inference.
+
 ## Evidence labels
 
 - `DOCUMENTED` — directly supported by a preserved source.
@@ -72,6 +97,8 @@ People whose experiences reveal a design failure are not automatically participa
 ## Current status
 
 `HYPOTHESIS` and `PROPOSED`. The file-naming problem has originating evidence, but the general claim and proposed interventions require consented testing with a broader group.
+
+The PIXIE Holdings integration is an executable companion/test bench, not evidence that the research hypothesis has been validated. Integration work should therefore remain labeled `IMPLEMENTED`, `PROPOSED`, or `UNVERIFIED` according to what has actually been tested.
 
 ## License
 
