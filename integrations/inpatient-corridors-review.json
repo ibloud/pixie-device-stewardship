@@ -1,0 +1,14 @@
+{
+  "schema": "https://pixieos.local/schemas/ecosystem-link.json",
+  "project": "inpatient-corridors-review",
+  "repository": "https://github.com/ibloud/inpatient-corridors-review",
+  "steward": "pixie-device-stewardship",
+  "relationship": "supported-project",
+  "authority": "none",
+  "consent": "required",
+  "provenance": "local",
+  "rollback_receipts": true,
+  "execution": "none",
+  "ownership": "independent",
+  "notes": "PIXIE provides a stewardship and consent architecture reference for the Inpatient Corridors project. It does not control the project, its files, its participants, or its publication."
+}
