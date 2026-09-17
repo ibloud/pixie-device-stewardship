@@ -41,6 +41,14 @@ The research specification is paired with an executable integration and test-ben
 
 This separation is intentional. PIXIE is influenced by other creative, accessibility, game, cinematic, and interface worlds, but those influences are not separate competing systems. The goal is a coherent ecosystem in which each repository contributes a distinct layer while preserving clear evidence, consent, provenance, and ownership boundaries.
 
+### PIXIE Care — the Wellness Framework / Care door
+
+PIXIE is the constant connective presence across the ecosystem; its capabilities remain modular. Think of PIXIE as a hallway and each domain as a door. **PIXIE Care is one bounded door.** It can share the PIXIE stewardship contract and navigation vocabulary without gaining access to Creator, Holdings, or other domain data by default.
+
+The Care specification is under [`docs/pixie-care/`](docs/pixie-care/README.md). It defines a proposed narrative exercise, independent consent moments, bounded practitioner reference material, and research evidence limits. It does **not** define a diagnostic system or clinical inference engine.
+
+Care-session data does not automatically enter `pixie-creator-os`. A future creator export is explicitly limited to person-facing narrative text and requires separate consent; practitioner material, self-reported material, session metadata, and care-context status remain outside the creator workflow.
+
 ### PIXIE Holdings visual and interaction companion
 
 `pixie-holdings` uses a darker, more weathered environmental language as a visual companion to this research repository. Its palette can draw from the atmosphere of quarantined civic and industrial spaces: desaturated charcoal, concrete grey, dusty brown, ash, oxidized metal, muted blue-green, and restrained emergency red, with small high-contrast signals for status and action.
@@ -73,6 +81,8 @@ These labels prevent personal experience, interpretation, and product claims fro
 - [ARTIST-FILE-PROTOCOL.md](ARTIST-FILE-PROTOCOL.md) — human-language creative-file intake
 - [SAFETY-AND-PRIVACY.md](SAFETY-AND-PRIVACY.md) — prohibited behaviors and data boundaries
 - [PHASE-2-HEALTH-STEWARDSHIP.md](PHASE-2-HEALTH-STEWARDSHIP.md) — private health-record access and rollout boundary
+- [docs/pixie-care/README.md](docs/pixie-care/README.md) — PIXIE Care / Wellness Framework boundary and specification
+- [docs/pixie-care/REBIRTH-PLAN.md](docs/pixie-care/REBIRTH-PLAN.md) — Paragon Rebirth implementation sequence
 - [EVENT-PLAYBOOK.md](EVENT-PLAYBOOK.md) — a low-load preparation and follow-up plan for the Twin Cities AI Skills Jam
 - [CASE-STUDY-AI-SKILLS-JAM.md](CASE-STUDY-AI-SKILLS-JAM.md) — a privacy-protected case study for facilitators and potential partners
 - [OPPORTUNITY-CREATION-PATH.md](OPPORTUNITY-CREATION-PATH.md) — a reusable path from lived barrier to bounded opportunity
