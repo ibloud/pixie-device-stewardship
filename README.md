@@ -93,6 +93,7 @@ These labels prevent personal experience, interpretation, and product claims fro
 - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — constructive participation rules
 - [MODERATION.md](MODERATION.md) — shielded intake, documentation, and appeals
 - [GOVERNANCE.md](GOVERNANCE.md) — review and decision authority
+- [docs/LEGACY_PROJECT_VALIDATION.md](docs/LEGACY_PROJECT_VALIDATION.md) — evidence and stewardship boundaries for bringing older projects forward
 - [CASE-STUDY-TEMPLATE.md](CASE-STUDY-TEMPLATE.md) — de-identified evidence collection
 - [MADE-SICK-INTEGRATION.md](MADE-SICK-INTEGRATION.md) — recommended role on made-sick.org
 - [blog/2026-09-12-the-system-should-remember.md](blog/2026-09-12-the-system-should-remember.md) — launch post
