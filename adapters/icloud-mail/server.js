@@ -1,11 +1,12 @@
 import http from "node:http";
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { ImapFlow } from "imapflow";
 
 const PORT = Number(process.env.PORT || 3000);
 const email = process.env.ICLOUD_EMAIL || "";
 const password = process.env.ICLOUD_APP_PASSWORD || "";
 const indexOnStart = process.env.PIXIE_MAIL_INDEX_ON_START === "true";
+const readToken = process.env.PIXIE_MAIL_READ_TOKEN || "";
 
 let indexState = {
   enabled: indexOnStart,
@@ -132,6 +133,29 @@ async function buildMetadataIndex() {
   });
 }
 
+function authorized(req) {
+  const header = req.headers.authorization || "";
+  return Boolean(readToken) && header === `Bearer ${readToken}`;
+}
+
+async function candidatePage(offset, limit) {
+  const raw = await readFile("/tmp/pixie-mail-candidates.json", "utf8");
+  const index = JSON.parse(raw);
+  const candidates = Array.isArray(index.candidates) ? index.candidates : [];
+  const start = Math.max(0, offset);
+  const size = Math.min(Math.max(1, limit), 100);
+
+  return {
+    generatedAt: index.generatedAt || null,
+    mode: index.mode || "read-only-metadata",
+    partial: Boolean(index.partial),
+    total: candidates.length,
+    offset: start,
+    limit: size,
+    candidates: candidates.slice(start, start + size)
+  };
+}
+
 const server = http.createServer(async (req, res) => {
   res.setHeader("content-type", "application/json");
   const pathname = new URL(req.url || "/", "http://localhost").pathname;
@@ -159,6 +183,26 @@ const server = http.createServer(async (req, res) => {
 
   if (pathname === "/scan/status") {
     res.end(JSON.stringify(indexState));
+    return;
+  }
+
+  if (pathname === "/scan/candidates") {
+    if (!authorized(req)) {
+      res.statusCode = 401;
+      res.end(JSON.stringify({ error: "unauthorized" }));
+      return;
+    }
+
+    try {
+      const requestUrl = new URL(req.url || "/", "http://localhost");
+      const offset = Number(requestUrl.searchParams.get("offset") || 0);
+      const limit = Number(requestUrl.searchParams.get("limit") || 50);
+      res.setHeader("cache-control", "no-store");
+      res.end(JSON.stringify(await candidatePage(offset, limit)));
+    } catch (error) {
+      res.statusCode = 503;
+      res.end(JSON.stringify({ error: "candidate_index_unavailable" }));
+    }
     return;
   }
 
