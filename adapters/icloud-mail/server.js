@@ -13,9 +13,10 @@ let indexState = {
   startedAt: null,
   finishedAt: null,
   folders: 0,
+  foldersCompleted: 0,
   messages: 0,
   candidates: 0,
-  error: null
+  errors: []
 };
 
 function client() {
@@ -49,50 +50,86 @@ async function folders() {
 }
 
 async function buildMetadataIndex() {
-  indexState = { enabled: true, state: "running", startedAt: new Date().toISOString(), finishedAt: null, folders: 0, messages: 0, candidates: 0, error: null };
-  const c = client();
+  indexState = {
+    enabled: true,
+    state: "running",
+    startedAt: new Date().toISOString(),
+    finishedAt: null,
+    folders: 0,
+    foldersCompleted: 0,
+    messages: 0,
+    candidates: 0,
+    errors: []
+  };
+
   const candidates = [];
-
-  try {
-    await c.connect();
-    const rows = await c.list();
-    indexState.folders = rows.length;
-
-    for (const folder of rows) {
-      await c.mailboxOpen(folder.path, { readOnly: true });
-      for await (const msg of c.fetch("1:*", { uid: true, envelope: true, internalDate: true })) {
-        indexState.messages += 1;
-        const subject = msg.envelope?.subject || "";
-        if (!looksActionable(subject)) continue;
-
-        candidates.push({
-          folder: folder.path,
-          uid: msg.uid,
-          date: msg.envelope?.date || msg.internalDate || null,
-          subject,
-          from: addresses(msg.envelope?.from),
-          to: addresses(msg.envelope?.to)
-        });
-        indexState.candidates += 1;
-      }
-    }
-
+  const writeSnapshot = async partial => {
     await writeFile("/tmp/pixie-mail-candidates.json", JSON.stringify({
       generatedAt: new Date().toISOString(),
       mode: "read-only-metadata",
+      partial,
       note: "Subjects and addressing metadata only. No message bodies or attachments.",
+      errors: indexState.errors,
       candidates
     }, null, 2));
+  };
 
-    indexState.state = "complete";
-    indexState.finishedAt = new Date().toISOString();
+  let folderRows = [];
+  const listingClient = client();
+
+  try {
+    await listingClient.connect();
+    folderRows = await listingClient.list();
+    indexState.folders = folderRows.length;
   } catch (error) {
+    indexState.errors.push({ stage: "list-folders", error: error.message });
     indexState.state = "failed";
     indexState.finishedAt = new Date().toISOString();
-    indexState.error = error.message;
+    await writeSnapshot(true).catch(() => {});
+    return;
   } finally {
-    await c.logout().catch(() => {});
+    await listingClient.logout().catch(() => {});
   }
+
+  for (const folder of folderRows) {
+    const c = client();
+    try {
+      await c.connect();
+      const mailbox = await c.mailboxOpen(folder.path, { readOnly: true });
+
+      if ((mailbox.exists || 0) > 0) {
+        for await (const msg of c.fetch("1:*", { uid: true, envelope: true, internalDate: true })) {
+          indexState.messages += 1;
+          const subject = msg.envelope?.subject || "";
+          if (!looksActionable(subject)) continue;
+
+          candidates.push({
+            folder: folder.path,
+            uid: msg.uid,
+            date: msg.envelope?.date || msg.internalDate || null,
+            subject,
+            from: addresses(msg.envelope?.from),
+            to: addresses(msg.envelope?.to)
+          });
+          indexState.candidates += 1;
+        }
+      }
+
+      indexState.foldersCompleted += 1;
+    } catch (error) {
+      indexState.errors.push({ folder: folder.path, error: error.message });
+    } finally {
+      await c.logout().catch(() => {});
+      await writeSnapshot(true).catch(() => {});
+    }
+  }
+
+  indexState.state = indexState.errors.length ? "complete_with_errors" : "complete";
+  indexState.finishedAt = new Date().toISOString();
+  await writeSnapshot(false).catch(error => {
+    indexState.errors.push({ stage: "write-final-index", error: error.message });
+    indexState.state = "complete_with_errors";
+  });
 }
 
 const server = http.createServer(async (req, res) => {
