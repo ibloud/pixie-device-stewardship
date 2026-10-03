@@ -41,8 +41,8 @@ function looksActionable(subject = "") {
 
 async function folders() {
   const c = client();
-  await c.connect();
   try {
+    await c.connect();
     const rows = await c.list();
     return rows.map(x => ({ path: x.path, specialUse: x.specialUse || null }));
   } finally {
@@ -158,6 +158,7 @@ async function candidatePage(offset, limit) {
 
 const server = http.createServer(async (req, res) => {
   res.setHeader("content-type", "application/json");
+  res.setHeader("cache-control", "no-store");
   const pathname = new URL(req.url || "/", "http://localhost").pathname;
 
   if (pathname === "/health") {
@@ -171,12 +172,26 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  if (["/probe/folders", "/scan/status", "/scan/candidates"].includes(pathname)) {
+    if (req.method !== "GET") {
+      res.statusCode = 405;
+      res.setHeader("allow", "GET");
+      res.end(JSON.stringify({ error: "method_not_allowed" }));
+      return;
+    }
+    if (!authorized(req)) {
+      res.statusCode = 401;
+      res.end(JSON.stringify({ error: "unauthorized" }));
+      return;
+    }
+  }
+
   if (pathname === "/probe/folders") {
     try {
       res.end(JSON.stringify({ folders: await folders() }));
     } catch (error) {
       res.statusCode = 503;
-      res.end(JSON.stringify({ error: error.message }));
+      res.end(JSON.stringify({ error: "folder_probe_failed" }));
     }
     return;
   }
@@ -212,5 +227,9 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, "0.0.0.0", () => {
   console.log("PIXIE iCloud Mail Adapter listening", PORT);
-  if (indexOnStart) buildMetadataIndex();
+  if (indexOnStart) buildMetadataIndex().catch(() => {
+    indexState.state = "failed";
+    indexState.finishedAt = new Date().toISOString();
+    indexState.errors.push({ stage: "startup", error: "metadata_index_failed" });
+  });
 });

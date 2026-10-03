@@ -1,6 +1,6 @@
 # PIXIE iCloud Mail Adapter
 
-Status: **IMPLEMENTED for read-only testing; not a general-purpose mail client.**
+Status: **IMPLEMENTED for read-only testing; live mailbox verification is not established by this PR.**
 
 This adapter exists to test whether PIXIE can reduce cognitive load around mailbox review without silently changing a user's mail. The current implementation is intentionally narrow: authenticate to iCloud Mail over IMAP, enumerate folders, build a metadata-only candidate index, and expose that index through an authenticated read-only endpoint.
 
@@ -27,7 +27,7 @@ Required service variables:
 
 - `ICLOUD_EMAIL` — iCloud Mail account address
 - `ICLOUD_APP_PASSWORD` — Apple app-specific password
-- `PIXIE_MAIL_INDEX_ON_START=true` — enables the read-only metadata scan when the container starts
+- `PIXIE_MAIL_INDEX_ON_START=false` — disables automatic scanning for first folder-only validation; enable separately for metadata testing
 - `PIXIE_MAIL_READ_TOKEN` — long random bearer token used only for protected candidate retrieval
 
 Do not place any of these secrets in GitHub, issue comments, chat transcripts, screenshots, or test fixtures.
@@ -38,8 +38,8 @@ After deployment:
 
 1. Confirm Railway deployment reaches `SUCCESS`.
 2. Open `/health` and confirm the adapter reports read-only mode and configured credentials.
-3. Open `/probe/folders` and confirm iCloud authentication succeeds and folder names are returned.
-4. Open `/scan/status` and confirm the metadata scan reaches `complete` or `complete_with_errors`.
+3. Request `/probe/folders` with the bearer header and confirm iCloud authentication succeeds and folder names are returned.
+4. After separately enabling scanning, request `/scan/status` with the bearer header and confirm the metadata scan reaches `complete` or `complete_with_errors`.
 5. Confirm `/scan/candidates` returns `401 unauthorized` with no bearer token.
 6. Retrieve candidate metadata only with the configured bearer token.
 7. Review candidate records as leads, not conclusions. The current filter matches subject lines and can produce false positives.
@@ -54,7 +54,7 @@ Authentication header:
 
 `Authorization: Bearer <PIXIE_MAIL_READ_TOKEN>`
 
-The endpoint currently caps each response at 100 candidate records. For a 254-record scan, retrieve three pages:
+The endpoint currently caps each response at 100 candidate records. For a hypothetical 254-record scan, retrieve three pages:
 
 - `offset=0&limit=100`
 - `offset=100&limit=100`
@@ -64,7 +64,7 @@ The response is metadata only and uses `Cache-Control: no-store`.
 
 ## iPad Shortcuts test workflow
 
-This is the current iPad-native retrieval procedure used during testing.
+This is a proposed iPad-native retrieval procedure, not evidence of a completed live test.
 
 1. Open Apple **Shortcuts**.
 2. Create or edit a shortcut containing **Get Contents of URL**.
@@ -131,3 +131,15 @@ The adapter is ready for mailbox-issue triage testing when all of the following 
 - no mailbox state was changed during the test.
 
 This document records the testing workflow so it can be reused and refined without relying on memory or chat history.
+
+## First connection-validation receipt
+
+Keep automatic indexing disabled. `/probe/folders`, `/scan/status`, and
+`/scan/candidates` all require the bearer header. Only `/health` is public;
+credential presence does not prove authentication.
+
+Record commit, UTC timestamp, health status/JSON, missing-token and wrong-token
+401 results for all protected routes, and authenticated folder-probe status
+and folder count. Keep folder names private; exclude credentials, tokens,
+and message metadata. Folder-only testing does not verify scanning,
+classification accuracy, or state preservation during a full scan.
