@@ -17,6 +17,36 @@
   --max: 1140px;
 }
 
+/* Scoped interactive-demo additions; retain the existing visual language. */
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+button:disabled { opacity: .65; cursor: default; }
+a { color: #9cc6ff; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #ffdc8a; outline-offset: 4px;
+}
+.button, .button.primary, .pixie-avatar { color: var(--ink); }
+.demo-choice.primary { color: #11132b; background: #9cc6ff; }
+.demo-step { flex-shrink: 0; }
+.demo-steps { gap: 1rem; list-style: none; padding-left: 0; }
+[data-demo-panel] h3 { margin-top: 0; }
+[data-demo-panel] label, #hardware label, #services label, #feedback label { display: block; margin: .8rem 0 .35rem; }
+pre.demo-provenance { white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+.demo-controls { border-top: 1px solid var(--border); padding-top: 1rem; }
+#demo-status, #feedback-status, #stream-status { color: #c9c9df; }
+.feedback-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
+#stream-player iframe { width: 100%; aspect-ratio: 16/9; border: 1px solid var(--border); margin-top: 1rem; }
+nav { flex-wrap: wrap; }
+.filename-proposal, .file-row strong { overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .feedback-grid { grid-template-columns: 1fr; gap: 0; }
+  .demo-body { padding: 1rem; }
+  .demo-choices { gap: .6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -912,3 +942,9 @@ footer {
     flex-wrap: wrap;
   }
 }
+/* Contrast and touch targets for the retained controls. */
+.button, .button.primary { color: var(--ink); }
+.button-ghost, .button.secondary { color: var(--text); }
+.demo-choice.primary { color: #11132b; background: #9cc6ff; }
+.demo-choice, select, .demo-input { min-height: 44px; }
+.demo-choice { text-decoration: none; }
