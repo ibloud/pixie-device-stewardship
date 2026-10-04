@@ -124,3 +124,13 @@ The PIXIE Holdings integration is an executable companion/test bench, not eviden
 ## License
 
 Documentation is licensed under [CC BY 4.0](LICENSE-DOCUMENTATION). Future software in this repository is licensed under [MIT](LICENSE).
+
+## Interactive example and shared pathways
+
+The [public example](https://ibloud.github.io/pixie-device-stewardship/) offers stream, music and project-return scenarios with editable names, skip/pause/clear behavior, review and a simulated confirmation. Optional downloads create an example plan or feedback draft; no device files are processed. Streamplace is an optional external viewer loaded only on request, not a broadcaster or a connected channel.
+
+- [Ecosystem responsibilities and current integration boundary](docs/ECOSYSTEM-COORDINATION.md)
+- [Shared hardware pathways and checked sources](docs/HARDWARE-PATHWAYS.md)
+- Local planning model checks: `node --test tests/demo-model.test.js`
+
+Feedback is previewed in the tab before an optional download or manual GitHub issue. No automatic submission, analytics, signup or interest enrollment. iPad Safari/VoiceOver, export-to-Files and instrument tests remain required before device support is claimed.

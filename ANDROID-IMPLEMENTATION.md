@@ -164,3 +164,7 @@ Never describe a feature as implemented until it has passed on-device testing. U
 - `UNVERIFIED` — code exists but has not passed the required device test.
 
 The ROM is therefore a staged implementation of the Device Stewardship research, not evidence that the underlying research hypothesis has been validated.
+
+## Shared hardware reference
+
+Use [PIXIE hardware pathways](docs/HARDWARE-PATHWAYS.md) for device reuse, Mac/iPad distinctions, repair and recovery. The Android plan is one device-specific branch of that guide, not a requirement for browser participation. Platform support and actual device verification remain separate.
