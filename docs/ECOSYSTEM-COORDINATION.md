@@ -36,3 +36,23 @@ Hardware routes link to [the shared guide](HARDWARE-PATHWAYS.md). Keep shared pr
 On iPad Safari with VoiceOver: try a music scenario, edit the name, skip transcript, pause/resume, confirm, change the plan, export to Files and clear the feedback draft. Record expected versus observed behavior. Then test a public Streamplace handle explicitly selected by the tester, including offline/no-stream/removal states. No hardware or screen-reader validation is claimed by browser-only checks.
 
 Review contributions remain voluntary and unpaid under the repository's existing participation terms.
+
+
+## Implementation homes — October 4, 2026
+
+| Capability | Implementation home | Evidence boundary |
+|---|---|---|
+| Public consent example and local feedback draft | Device Stewardship | Simulation; no processing or feedback collection backend |
+| Local creator-session pilot and optional viewer | [Creator OS](https://github.com/ibloud/pixie-creator-os) | Session JSON export/import and selected local playback; iPad checks open |
+| Device lifecycle assessment and MCP test bench | [Holdings](https://github.com/ibloud/pixie-holdings) | Declared capability assessment; no installation, repair or wipe |
+| Local rights/source/consent records | [Narrative Provenance](https://github.com/ibloud/narrative-provenance) | Obsidian metadata and sharing audits; no automatic permission determination |
+| Goal/device learning routes and lesson policy | [Tarantula](https://github.com/ibloud/tarantula-clone-hero) | Links to the exercise; source-verified Ren lessons unfinished |
+| Playable original music/code exercise | [Rhythm-game repo](https://github.com/ibloud/ren-tap-tap-revenge) | Synthetic tones, note edits, timed/untimed simulated actions, bounded chart import/export; no physical input |
+| ATProto discovery | [50 Ways](https://github.com/ibloud/50-ways-to-leave-another) | Experimental read-only discovery, separate from device execution |
+| Accessible gameplay and consent-based game feedback | [Duet](https://github.com/Loptr-Lab/duet-solo-hackathon) | Game-specific implementation; do not reuse its backend implicitly for creative sessions |
+
+[Try the creator-session pilot](https://ibloud.github.io/pixie-creator-os/session.html) or [the original music/code exercise](https://ibloud.github.io/ren-tap-tap-revenge/lesson.html). Keep one implementation home per capability; links do not synchronize private records. No migration, new backend, service credentials, automatic cross-repo synchronization or hardware installation is introduced.
+
+Creator OS owns the production-direction optional viewer module. The research example retains its bounded illustrative viewer. Changes to the shared handle acceptance, explicit contact, removal, no-persistence and availability-label contract must be reviewed in both places. Do not introduce runtime remote-script dependency just to share a small validator.
+
+Feedback remains local/manual on this site. Duet’s feedback design is a reference for consent and retention decisions, not an authorization to send creator records to its Firestore collections. Before adding any collection endpoint, specify destination, exact fields, retention, deletion and separate submission consent.
