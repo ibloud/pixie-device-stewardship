@@ -60,3 +60,13 @@ Clinical sharing is not part of the initial product. Any later clinical module m
 
 Do not use PIXIE to covertly monitor another person's behavior. Research or care settings involving children or dependent adults require specialized consent, assent, safeguarding, and data-governance review beyond this repository.
 
+
+## Made Sick account hosting — 7 October 2026
+
+The owner supplied a successful migration confirmation for the AT Protocol account `@made-sick.org` to Eurosky (`eurosky.social`) on 7 October 2026. This concerns the account's Personal Data Server (PDS), not the hosting of the made-sick.org website or every Loptr Lab project.
+
+Use of that account must follow the applicable [Eurosky Terms of Service](https://eurosky.tech/accounts/terms/) and [Privacy Policy](https://eurosky.tech/accounts/privacy/). The terms are governed by Netherlands law; Modal describes its GDPR responsibilities and EU PDS hosting. This is not a blanket claim that all Loptr Lab projects are EU-regulated or GDPR-compliant. Assess each project's processing and applicable law separately.
+
+Bluesky and other applications retain their own terms and privacy practices. Public AT Protocol records can be replicated and indexed outside the EU; EU PDS hosting is not a promise of EU-only distribution or confidential storage. Do not put private health records, credentials, recovery keys or participant contact details into public records.
+
+For a future PIXIE integration, show the chosen account, resolved PDS, destination application, public/private data boundary and requested permissions before sharing. Re-resolve hosting after migration and review each destination's terms. These are integration requirements, not implemented capabilities or proof of EU-only processing.
