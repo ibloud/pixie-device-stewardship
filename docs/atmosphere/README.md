@@ -58,3 +58,13 @@ The old atmosphere.html address is a redirect preserving query parameters and se
 The @made-sick.org account is hosted on Eurosky; account, website, participant PDS and AppView boundaries are recorded in the [canonical ecosystem hosting note](https://github.com/ibloud/ibloud.github.io/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md#made-sick-account-hosting--7-october-2026), including PLC evidence and the dated policy baseline.
 
 For a future PIXIE integration, show the chosen account, resolved PDS, destination application, public/private data boundary and requested permissions before sharing. Re-resolve hosting after migration and review each destination's terms. These are integration requirements, not implemented capabilities or proof of EU-only processing.
+
+## Newcomer revision — October 7, 2026
+
+- The account example and definitions are always visible directly after the hero and prerendered into served HTML; React hydrates that same default content.
+- Header identifies Loptr Lab's field guide; PIXIE receives footer credit. Learn is the default for every visitor.
+- Made Sick homepage entry links point directly to https://atmosphere.loptrlab.com/?from=made-sick . The browser reads this parameter after hydration to change one hero line and offer Create as a forward step; no referral state is stored and no analytics event or custom request is sent. Normal navigation sends the URL to the hosting provider, so query strings are not promised invisible to logs.
+- The legacy JavaScript redirect already retained location.search and location.hash. Removed its competing instant meta refresh; the visible fallback link remains for browsers without JavaScript.
+- One dated footer note covers unverified destination account flows, iPad Safari and VoiceOver. Desktop viewport checks do not establish actual iPad support.
+- Eurosky is operated by a Netherlands foundation; its policies describe EU hosting, not a specifically Netherlands-located server. The PLC endpoint is evidence of account hosting; migration-related sign-in testing remains paused.
+- [Five-second comprehension test](COMPREHENSION_TEST.md): ten newcomers in two arrival groups. Prepared, not run; no response tracking added. Keep Learn unless actual responses justify a change.
