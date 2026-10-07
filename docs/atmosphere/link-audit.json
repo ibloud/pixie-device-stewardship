@@ -1,0 +1,410 @@
+{
+  "checked_at": "2026-10-07",
+  "method": "Automated HTTP GET; redirects followed; no authentication",
+  "resources": [
+    {
+      "url": "https://atproto.com/",
+      "status": 200,
+      "final_url": "https://atproto.com/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://atproto.com/guides/glossary",
+      "status": 200,
+      "final_url": "https://atproto.com/guides/glossary",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://docs.bsky.app/blog/pinned-posts",
+      "error": "<urlopen error timed out>",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://atproto.com/guides/applications",
+      "error": "HTTP Error 404: Not Found",
+      "checked_at": "2026-10-07",
+      "classification": "not-found"
+    },
+    {
+      "url": "https://educatedguesswork.org/posts/atproto-firstlook/",
+      "error": "<urlopen error timed out>",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://shreyanjain.net/2024/07/05/nostr-and-atproto.html",
+      "status": 200,
+      "final_url": "https://shreyanjain.net/2024/07/05/nostr-and-atproto.html",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://dustycloud.org/blog/how-decentralized-is-bluesky/",
+      "status": 200,
+      "final_url": "https://dustycloud.org/blog/how-decentralized-is-bluesky/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://whtwnd.com/bnewbold.net/3lbvbtqrg5t2t",
+      "status": 200,
+      "final_url": "https://whtwnd.com/bnewbold.net/3lbvbtqrg5t2t",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://bnewbold.net/2022/atproto_thoughts/",
+      "status": 200,
+      "final_url": "https://bnewbold.net/2022/atproto_thoughts/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://hackernoon.com/the-at-protocol-architecture",
+      "status": 200,
+      "final_url": "https://hackernoon.com/the-at-protocol-architecture",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://whtwnd.com/bnewbold.net/entries/Notes%20on%20Running%20a%20Full-Network%20atproto%20Relay%20(July%202024)",
+      "status": 200,
+      "final_url": "https://whtwnd.com/bnewbold.net/entries/Notes%20on%20Running%20a%20Full-Network%20atproto%20Relay%20(July%202024)",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://pdsls.dev/",
+      "status": 200,
+      "final_url": "https://pdsls.dev/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://atproto-browser.vercel.app/",
+      "error": "HTTP Error 404: Not Found",
+      "checked_at": "2026-10-07",
+      "classification": "not-found"
+    },
+    {
+      "url": "https://bsky.social",
+      "status": 200,
+      "final_url": "https://bsky.social:443/about",
+      "checked_at": "2026-10-07",
+      "classification": "redirected-response-ok"
+    },
+    {
+      "url": "https://place.blue/",
+      "error": "HTTP Error 502: Bad Gateway",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://bookhive.buzz/",
+      "status": 200,
+      "final_url": "https://bookhive.buzz/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://frontpage.fyi/",
+      "error": "HTTP Error 403: Forbidden",
+      "checked_at": "2026-10-07",
+      "classification": "manual-review"
+    },
+    {
+      "url": "https://grayhaze.live/about",
+      "status": 200,
+      "final_url": "https://grayhaze.live/about",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://linkat.blue/",
+      "status": 200,
+      "final_url": "https://linkat.blue/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://pastesphere.link/",
+      "error": "HTTP Error 502: Bad Gateway",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://psky.social/",
+      "status": 200,
+      "final_url": "https://zeens.app/",
+      "checked_at": "2026-10-07",
+      "classification": "redirected-response-ok"
+    },
+    {
+      "url": "https://pinksea.art/",
+      "status": 200,
+      "final_url": "https://pinksea.art/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://recipe.exchange/",
+      "status": 200,
+      "final_url": "https://recipe.exchange/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://skylights.my/",
+      "error": "<urlopen error timed out>",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://smokesignal.events/",
+      "status": 200,
+      "final_url": "https://smokesignal.events/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/dblock/sparta-social",
+      "status": 200,
+      "final_url": "https://github.com/dblock/sparta-social",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://touchgrass.network",
+      "status": 200,
+      "final_url": "https://touchgrass.network",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://whtwnd.com/",
+      "error": "The read operation timed out",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://clearsky.app/",
+      "status": 200,
+      "final_url": "https://clearsky.app/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://cleanfollow-bsky.pages.dev/",
+      "status": 200,
+      "final_url": "https://cleanfollow-bsky.pages.dev/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://blue.mackuba.eu/directory/",
+      "status": 200,
+      "final_url": "https://blue.mackuba.eu/directory/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://blue.mackuba.eu/labellers/",
+      "status": 200,
+      "final_url": "https://blue.mackuba.eu/labellers/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://mocku.me/nt/#%23+BluSki+account+history//%23%23+Whose+history%3F//Let's+pick+a+rando+hot+poster+from+Discovery+feed+--//%60%60%60JavaScript/%2F%2F+downloading+Discovery+feed+posts/let+discoveryFeedPosts+=+(await+fetch(/++'https:%2F%2Fapi.bsky.app%2Fxrpc%2Fapp.bsky.feed.getFeed%3Ffeed=at:%2F%2Fdid:plc:z72i7hdynmk6r22z27h6tvur%2Fapp.bsky.feed.generator%2Fwhats-hot%26limit=100',/++%7B+headers:+%7B+'accept-language':+'en'+%7D+%7D).then(x+=%3E+x.json())).feed;//%2F%2F+sort+by+likes/let+topTextPost+=+discoveryFeedPosts/++.filter(p+=%3E+p.post.record.text+%26%26+!p.post.record.embed)/++.sort((p1,+p2)+=%3E+p2.post.likeCount+-+p1.post.likeCount)%5B0%5D;//%2F%2F+let's+see+all+the+info+now/let+hotAuthor+=+%7B/++...topTextPost.post.author,/++post:+%7B+...topTextPost.post,+...topTextPost.post.record,+post:+undefined,+record:+undefined,+author:+undefined+%7D/%7D;/%60%60%60//If+you're+after+specifc+handle,+specify+it+now.//%60%60%60JavaScript/let+bskyHandle+=+%2F%2F+'oyin.bo';+++++++%2F%2F++%3C--+like+this/++hotAuthor.handle;+//let+resolvedAccount+=++await+fetch(/++'https:%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%3Factor='+%2B+bskyHandle).then(x=%3Ex.json())/%60%60%60//%23%23+Finding+PDS+for+that+account//PDS,+personal+data+server+physically+stores+account's+data.+Usually+it's+one+of+a+couple+dozens+BluSki+servers+in+the+cloud.//By+tradition+they+get+Latin+mushroom+names.//Accounts+sometimes+shift+from+one+mushroom+to+another,+so+we+find+the+latest+most+actual+PDS.//%60%60%60JavaScript/let+plcEntries+=+await+fetch(%60https:%2F%2Fplc.directory%2F$%7BresolvedAccount.did%7D%2Flog%2Faudit%60).then(x+=%3E+x.json());+%2F%2F+full+account+registry/let+lastKnownPds+=+plcEntries.slice().reverse().map(x=%3Ex.operation%3F.services%3F.atproto_pds%3F.endpoint).filter(Boolean)%5B0%5D;+%2F%2F+last+PDS+operation+record/%60%60%60//%23%23+Downloading+the+history+in+CAR%2FCBOR+format//Account+history+is+a+public+service,+because+it's+used+in+distributing+BluSki+data+across+the+network.+The+file+can+be+anything+between+1-50Mb+depending+on+shitposting+power.//The+binary+CAR%2FCBOR+format+saves+storage+and+bandwith,+and+has+extra+funky+cryptographic+signatures+(of+which+no+normal+person+cares).//%60%60%60JavaScript/let+binarySnapshot+=+await+fetch(lastKnownPds+%2B+'%2Fxrpc%2Fcom.atproto.sync.getRepo%3Fdid='+%2B+resolvedAccount.did).then(x+=%3E+x.arrayBuffer());/binarySnapshot.byteLength.toLocaleString()/%60%60%60//%23%23+Extracting+useful+data+from+CAR%2FCBOR//There+are+libraries+for+that+in+every+programming+language.+Just+invoke+and+it'll+come.//%60%60%60JavaScript/import+%7B+readCAR+%7D+from+'https:%2F%2Funpkg.com%2Fcoldsky';/let+parsedRecords+=+await+readCAR(resolvedAccount.did,+binarySnapshot,+%7B+sleep:+600+%7D)/%60%60%60//%23+Finally,+useful+info!//Having+this+rich+history+of+shitposts,+replies,+likes+and+more,+we+are+ready+to+look+at+actual+stats.//%23%23+What+kind+of+activity+dominates%3F//%60%60%60SQL/SELECT+%5B$type%5D,+COUNT(*)/FROM+$4+GROUP+BY+%5B$type%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+5+days+of+heaviest+shitpost//%60%60%60SQL/SELECT+TOP+5+createdAt-%3Esplit('T')-%3E%5B0%5D+as+date,+COUNT(*)/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.post%22/++GROUP+BY+createdAt-%3Esplit('T')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+5+days+of+love:+more+likes+gifted+to+others//%60%60%60SQL/SELECT+TOP+5+createdAt-%3Esplit('T')-%3E%5B0%5D+as+date,+COUNT(*)/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.like%22/++GROUP+BY+createdAt-%3Esplit('T')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+10+favourite+accounts//%60%60%60SQL/SELECT+TOP+10+subject-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D+as+did,+COUNT(*)+AS+likes/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.like%22/++GROUP+BY+subject-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+Who+are+these+people%3F//Account+history+file+refers+to+other+accounts+with+hexadecimal+DID,+which+as+you+see+above+isn't+that+readable.//No+sweat,+BluSki+has+a+service+to+resolve+DID+to+account+name%2Fhandle%2Finfo.+Here+you+go.//%60%60%60JavaScript/Promise.all($8.map(async+entry+=%3E+%7B/++const+profile+=+await+fetch('https:%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%3Factor='+%2B+entry.did).then(x+=%3E+x.json());/++return+%7B/++++did:+profile.did,+handle:+profile.handle,+displayName:+profile.displayName,/++++likesCount:+entry.likes,/++++postsCount:+profile.postsCount,/++++...profile/++%7D;/%7D))/%60%60%60//%23%23+10+accounts+getting+most+reply+traffic//%60%60%60SQL/SELECT+TOP+10+reply-%3Eparent-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D+as+did,+COUNT(*)+AS+replies/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.post%22+AND+reply+AND+reply-%3Eparent-%3Euri/++GROUP+BY+reply-%3Eparent-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC+/%60%60%60//And+again,+with+names+and+extra.//%60%60%60JavaScript/Promise.all($10.map(async+entry+=%3E+%7B/++const+profile+=+await+fetch('https:%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%3Factor='+%2B+entry.did).then(x+=%3E+x.json());/++return+%7B/++++did:+profile.did,+handle:+profile.handle,+displayName:+profile.displayName,/++++repliesCount:+entry.replies,/++++postsCount:+profile.postsCount,/++++...profile/++%7D;/%7D))/%60%60%60//",
+      "status": 200,
+      "final_url": "https://mocku.me/nt/#%23+BluSki+account+history//%23%23+Whose+history%3F//Let's+pick+a+rando+hot+poster+from+Discovery+feed+--//%60%60%60JavaScript/%2F%2F+downloading+Discovery+feed+posts/let+discoveryFeedPosts+=+(await+fetch(/++'https:%2F%2Fapi.bsky.app%2Fxrpc%2Fapp.bsky.feed.getFeed%3Ffeed=at:%2F%2Fdid:plc:z72i7hdynmk6r22z27h6tvur%2Fapp.bsky.feed.generator%2Fwhats-hot%26limit=100',/++%7B+headers:+%7B+'accept-language':+'en'+%7D+%7D).then(x+=%3E+x.json())).feed;//%2F%2F+sort+by+likes/let+topTextPost+=+discoveryFeedPosts/++.filter(p+=%3E+p.post.record.text+%26%26+!p.post.record.embed)/++.sort((p1,+p2)+=%3E+p2.post.likeCount+-+p1.post.likeCount)%5B0%5D;//%2F%2F+let's+see+all+the+info+now/let+hotAuthor+=+%7B/++...topTextPost.post.author,/++post:+%7B+...topTextPost.post,+...topTextPost.post.record,+post:+undefined,+record:+undefined,+author:+undefined+%7D/%7D;/%60%60%60//If+you're+after+specifc+handle,+specify+it+now.//%60%60%60JavaScript/let+bskyHandle+=+%2F%2F+'oyin.bo';+++++++%2F%2F++%3C--+like+this/++hotAuthor.handle;+//let+resolvedAccount+=++await+fetch(/++'https:%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%3Factor='+%2B+bskyHandle).then(x=%3Ex.json())/%60%60%60//%23%23+Finding+PDS+for+that+account//PDS,+personal+data+server+physically+stores+account's+data.+Usually+it's+one+of+a+couple+dozens+BluSki+servers+in+the+cloud.//By+tradition+they+get+Latin+mushroom+names.//Accounts+sometimes+shift+from+one+mushroom+to+another,+so+we+find+the+latest+most+actual+PDS.//%60%60%60JavaScript/let+plcEntries+=+await+fetch(%60https:%2F%2Fplc.directory%2F$%7BresolvedAccount.did%7D%2Flog%2Faudit%60).then(x+=%3E+x.json());+%2F%2F+full+account+registry/let+lastKnownPds+=+plcEntries.slice().reverse().map(x=%3Ex.operation%3F.services%3F.atproto_pds%3F.endpoint).filter(Boolean)%5B0%5D;+%2F%2F+last+PDS+operation+record/%60%60%60//%23%23+Downloading+the+history+in+CAR%2FCBOR+format//Account+history+is+a+public+service,+because+it's+used+in+distributing+BluSki+data+across+the+network.+The+file+can+be+anything+between+1-50Mb+depending+on+shitposting+power.//The+binary+CAR%2FCBOR+format+saves+storage+and+bandwith,+and+has+extra+funky+cryptographic+signatures+(of+which+no+normal+person+cares).//%60%60%60JavaScript/let+binarySnapshot+=+await+fetch(lastKnownPds+%2B+'%2Fxrpc%2Fcom.atproto.sync.getRepo%3Fdid='+%2B+resolvedAccount.did).then(x+=%3E+x.arrayBuffer());/binarySnapshot.byteLength.toLocaleString()/%60%60%60//%23%23+Extracting+useful+data+from+CAR%2FCBOR//There+are+libraries+for+that+in+every+programming+language.+Just+invoke+and+it'll+come.//%60%60%60JavaScript/import+%7B+readCAR+%7D+from+'https:%2F%2Funpkg.com%2Fcoldsky';/let+parsedRecords+=+await+readCAR(resolvedAccount.did,+binarySnapshot,+%7B+sleep:+600+%7D)/%60%60%60//%23+Finally,+useful+info!//Having+this+rich+history+of+shitposts,+replies,+likes+and+more,+we+are+ready+to+look+at+actual+stats.//%23%23+What+kind+of+activity+dominates%3F//%60%60%60SQL/SELECT+%5B$type%5D,+COUNT(*)/FROM+$4+GROUP+BY+%5B$type%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+5+days+of+heaviest+shitpost//%60%60%60SQL/SELECT+TOP+5+createdAt-%3Esplit('T')-%3E%5B0%5D+as+date,+COUNT(*)/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.post%22/++GROUP+BY+createdAt-%3Esplit('T')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+5+days+of+love:+more+likes+gifted+to+others//%60%60%60SQL/SELECT+TOP+5+createdAt-%3Esplit('T')-%3E%5B0%5D+as+date,+COUNT(*)/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.like%22/++GROUP+BY+createdAt-%3Esplit('T')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+10+favourite+accounts//%60%60%60SQL/SELECT+TOP+10+subject-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D+as+did,+COUNT(*)+AS+likes/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.like%22/++GROUP+BY+subject-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC/%60%60%60//%23%23+Who+are+these+people%3F//Account+history+file+refers+to+other+accounts+with+hexadecimal+DID,+which+as+you+see+above+isn't+that+readable.//No+sweat,+BluSki+has+a+service+to+resolve+DID+to+account+name%2Fhandle%2Finfo.+Here+you+go.//%60%60%60JavaScript/Promise.all($8.map(async+entry+=%3E+%7B/++const+profile+=+await+fetch('https:%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%3Factor='+%2B+entry.did).then(x+=%3E+x.json());/++return+%7B/++++did:+profile.did,+handle:+profile.handle,+displayName:+profile.displayName,/++++likesCount:+entry.likes,/++++postsCount:+profile.postsCount,/++++...profile/++%7D;/%7D))/%60%60%60//%23%23+10+accounts+getting+most+reply+traffic//%60%60%60SQL/SELECT+TOP+10+reply-%3Eparent-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D+as+did,+COUNT(*)+AS+replies/FROM+$4/++WHERE+%5B$type%5D+=+%22app.bsky.feed.post%22+AND+reply+AND+reply-%3Eparent-%3Euri/++GROUP+BY+reply-%3Eparent-%3Euri-%3Esplit('at:%2F%2F')-%3E%5B1%5D-%3Esplit('%2F')-%3E%5B0%5D/ORDER+BY+COUNT(*)+DESC+/%60%60%60//And+again,+with+names+and+extra.//%60%60%60JavaScript/Promise.all($10.map(async+entry+=%3E+%7B/++const+profile+=+await+fetch('https:%2F%2Fpublic.api.bsky.app%2Fxrpc%2Fapp.bsky.actor.getProfile%3Factor='+%2B+entry.did).then(x+=%3E+x.json());/++return+%7B/++++did:+profile.did,+handle:+profile.handle,+displayName:+profile.displayName,/++++repliesCount:+entry.replies,/++++postsCount:+profile.postsCount,/++++...profile/++%7D;/%7D))/%60%60%60//",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://www.starterpacks.net/",
+      "error": "HTTP Error 503: Service Unavailable",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://atproto.com/guides/self-hosting",
+      "error": "<urlopen error timed out>",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    },
+    {
+      "url": "https://github.com/czue/bluesky-comments",
+      "status": 200,
+      "final_url": "https://github.com/czue/bluesky-comments",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://www.coryzue.com/writing/bluesky-comments/)",
+      "status": 200,
+      "final_url": "https://www.coryzue.com/writing/bluesky-comments/)",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/notjuliet/awesome-bluesky",
+      "error": "HTTP Error 404: Not Found",
+      "checked_at": "2026-10-07",
+      "classification": "not-found"
+    },
+    {
+      "url": "https://github.com/ziodotsh/atfile",
+      "status": 200,
+      "final_url": "https://github.com/ziodotsh/atfile",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/rodrgds/openpost",
+      "status": 200,
+      "final_url": "https://github.com/getopenpost/openpost",
+      "checked_at": "2026-10-07",
+      "classification": "redirected-response-ok"
+    },
+    {
+      "url": "https://onyxhq.us",
+      "status": 200,
+      "final_url": "https://onyxhq.us",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/shopsavvy/bluesky-shopsavvy",
+      "status": 200,
+      "final_url": "https://github.com/shopsavvy/bluesky-shopsavvy",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/ziodotsh/lexicons/tree/main/blue/zio/atfile",
+      "status": 200,
+      "final_url": "https://github.com/ziodotsh/lexicons/tree/main/blue/zio/atfile",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/aendra-rininsland/bluemoji/tree/main/schema/blue.moji",
+      "error": "HTTP Error 404: Not Found",
+      "checked_at": "2026-10-07",
+      "classification": "not-found"
+    },
+    {
+      "url": "https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky",
+      "status": 200,
+      "final_url": "https://github.com/bluesky-social/atproto/tree/main/lexicons/app/bsky",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/nperez0111/bookhive/tree/main/lexicons",
+      "status": 200,
+      "final_url": "https://github.com/nperez0111/bookhive/tree/main/lexicons",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/likeandscribe/frontpage/tree/main/lexicons/fyi/unravel/frontpage",
+      "status": 200,
+      "final_url": "https://github.com/frontpagefyi/frontpage/tree/main/lexicons/fyi/unravel/frontpage",
+      "checked_at": "2026-10-07",
+      "classification": "redirected-response-ok"
+    },
+    {
+      "url": "https://github.com/hugeblank/grayhaze.live/tree/main/lexicons/live/grayhaze",
+      "status": 200,
+      "final_url": "https://github.com/hugeblank/grayhaze.live/tree/main/lexicons/live/grayhaze",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/mkizka/linkat/tree/main/lexicons/blue/linkat",
+      "status": 200,
+      "final_url": "https://github.com/mkizka/linkat/tree/main/lexicons/blue/linkat",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/echo8/pastesphere/tree/main/lexicons",
+      "status": 200,
+      "final_url": "https://github.com/echo8/pastesphere/tree/main/lexicons",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/psky-atp/appview/tree/main/lexicons/social/psky",
+      "error": "HTTP Error 404: Not Found",
+      "checked_at": "2026-10-07",
+      "classification": "not-found"
+    },
+    {
+      "url": "https://github.com/shinolabs/PinkSea/tree/master/PinkSea.Lexicons/com/shinolabs/pinksea",
+      "status": 200,
+      "final_url": "https://github.com/shinolabs/PinkSea/tree/master/PinkSea.Lexicons/com/shinolabs/pinksea",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/QuietImCoding/place.blue/tree/main/atproto/lexicons",
+      "status": 200,
+      "final_url": "https://github.com/QuietImCoding/place.blue/tree/main/atproto/lexicons",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://recipe.exchange/lexicons/",
+      "status": 200,
+      "final_url": "https://recipe.exchange/lexicons/",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/Gregoor/skylights/tree/main/web/lexicons",
+      "error": "HTTP Error 404: Not Found",
+      "checked_at": "2026-10-07",
+      "classification": "not-found"
+    },
+    {
+      "url": "https://github.com/safwanyp/skymdb/tree/main/domain/lexicons",
+      "status": 200,
+      "final_url": "https://github.com/safwanyp/skymdb/tree/main/domain/lexicons",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/SmokeSignal-Events/lexicon",
+      "error": "HTTP Error 404: Not Found",
+      "checked_at": "2026-10-07",
+      "classification": "not-found"
+    },
+    {
+      "url": "https://github.com/dblock/sparta-social/tree/main/lexicons",
+      "status": 200,
+      "final_url": "https://github.com/dblock/sparta-social/tree/main/lexicons",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://github.com/whtwnd/whitewind-blog/tree/main/lexicons/com/whtwnd/blog",
+      "status": 200,
+      "final_url": "https://github.com/whtwnd/whitewind-blog/tree/main/lexicons/com/whtwnd/blog",
+      "checked_at": "2026-10-07",
+      "classification": "response-ok"
+    },
+    {
+      "url": "https://atproto.brussels/atproto-apps",
+      "error": "HTTP Error 502: Bad Gateway",
+      "check": "initial targeted check",
+      "checked_at": "2026-10-07",
+      "classification": "retry-needed"
+    }
+  ]
+}
