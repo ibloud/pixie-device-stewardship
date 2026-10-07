@@ -3,3 +3,10 @@
 @media(max-width:620px){.resource-row{grid-template-columns:1fr}.resource-row p{font-size:16px}.resource-row h3{font-size:19px}.resource-row .credit{font-size:14px}.access{font-size:13px}.resource-action a{font-size:16px}.made-sick p{font-size:16px}.made-sick>a{font-size:16px}}
 
 .resource-icon{height:72px;min-height:72px;align-self:flex-start}
+
+.identity .did{display:block;overflow-wrap:anywhere;margin-top:8px;font-size:15px}
+.identity-terms{max-width:65ch;display:grid;gap:16px;color:var(--muted)}
+.identity-terms dt{font-weight:700;color:#f4f5ff;margin-bottom:5px}
+.identity-terms dd{margin:0;line-height:1.55}
+.create-step{background:transparent;color:var(--blue);border:0;border-left:1px solid var(--line);padding:12px 0 12px 24px;text-align:left;font-size:16px;font-weight:700;line-height:1.5;min-height:44px}
+@media(max-width:620px){.create-step{grid-column:2;border:0;padding:0}.identity{padding:20px}.identity .did{font-size:14px}}
