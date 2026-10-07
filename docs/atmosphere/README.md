@@ -39,3 +39,10 @@ blueprints.at/awesome-atproto was reported by the owner to open the GitHub code 
 - Recheck not-found resources, find author-maintained replacement URLs, then prepare a focused upstream correction PR following their contributing.md and code of conduct. No upstream submission has been made.
 - A true fork remains a separate GitHub operation when available.
 - Update dates only when actual checks run. No scheduled monitoring is installed.
+
+
+## Field guide redesign — October 7, 2026
+
+Sixteen unique destinations appear across eighteen placements in Learn, Create, Publish, Connect and Build. Two lead each path, with more under a disclosure. The original snapshot and CC0 dedication are preserved. This is a curated adaptation, not a fork. Standard.site introduction and Streamplace are labeled additions. Uncertain destinations stay out of displayed resources; audit status is internal. Volunteer-maintained directories evolve: offer verified corrections with credit rather than infer abandonment.
+
+Retrieval does not test sign-in, iPad Safari or VoiceOver; these remain untested. The owner-supplied Made Sick icon is separate from upstream CC0 material. Source: tools/atmosphere-guide. Desktop checks and build passed; see design-qa.md. Unmerged pending review.
