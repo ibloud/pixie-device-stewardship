@@ -60,3 +60,9 @@ Clinical sharing is not part of the initial product. Any later clinical module m
 
 Do not use PIXIE to covertly monitor another person's behavior. Research or care settings involving children or dependent adults require specialized consent, assent, safeguarding, and data-governance review beyond this repository.
 
+
+## Made Sick account hosting — 7 October 2026
+
+The @made-sick.org account is hosted on Eurosky; account, website, participant PDS and AppView boundaries are recorded in the [canonical ecosystem hosting note](https://github.com/ibloud/ibloud.github.io/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md#made-sick-account-hosting--7-october-2026), including PLC evidence and the dated policy baseline.
+
+For a future PIXIE integration, show the chosen account, resolved PDS, destination application, public/private data boundary and requested permissions before sharing. Re-resolve hosting after migration and review each destination's terms. These are integration requirements, not implemented capabilities or proof of EU-only processing.
