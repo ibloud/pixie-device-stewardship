@@ -1,0 +1,11 @@
+{
+  "name": "pixie-icloud-mail-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.js" },
+  "dependencies": {
+    "imapflow": "^1.0.195"
+  }
+}
