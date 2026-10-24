@@ -12,7 +12,7 @@ const PILOT = Object.freeze({
   source: "artist-owned-signup"
 });
 const ALLOWED = new Set(["contact.opted_in", "contact.unsubscribed"]);
-const EMAIL = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function routeSignup(event, { destination = "laylo", now = () => new Date().toISOString() } = {}) {
   if (!event || typeof event !== "object" || Array.isArray(event)) throw new TypeError("Event must be an object");
