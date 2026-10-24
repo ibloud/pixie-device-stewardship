@@ -68,3 +68,12 @@ For a future PIXIE integration, show the chosen account, resolved PDS, destinati
 - One dated footer note covers unverified destination account flows, iPad Safari and VoiceOver. Desktop viewport checks do not establish actual iPad support.
 - Eurosky is operated by a Netherlands foundation; its policies describe EU hosting, not a specifically Netherlands-located server. The PLC endpoint is evidence of account hosting; migration-related sign-in testing remains paused.
 - [Five-second comprehension test](COMPREHENSION_TEST.md): ten newcomers in two arrival groups. Prepared, not run; no response tracking added. Keep Learn unless actual responses justify a change.
+
+
+## Publishing and discovery path — 24 October 2026
+
+Extended the existing guide source in `tools/atmosphere-guide/src/App.jsx`; no separate guide, directory or publication was created. Existing pckt publishing, Leaflet Reader, mu.social discussion and Streamplace sessions serve different tasks. The always-readable example links to 50 Ways for context and Made-Sick for sourced professional/royalty/civic cards. No posting or account integration is implemented.
+
+Primary references reviewed: https://standard.site/docs/implementations/ (pckt and reader implementations), https://about.leaflet.pub/ (Reader, discovery and AT Protocol/RSS subscriptions), https://hello.mu.social/ and https://bsky.app/profile/mu.social (official app description), https://docs.stream.place/docs/guides/start-streaming/quick-start/ (streaming). New entries carry their own review dates; older resource reviews are not silently refreshed. Cross-app discovery and account flows require separate verification and do not guarantee reach.
+
+Release order: review/merge the source PR, then run the existing `Deploy Atmosphere guide` workflow in `ibloud/atmosphere-field-guide`. Verify source-version.json matches the accepted source commit, Publish/Connect categories work, the example is readable at wide/narrow widths, and destination anchors resolve. iPad Safari/VoiceOver acceptance remains separate.
