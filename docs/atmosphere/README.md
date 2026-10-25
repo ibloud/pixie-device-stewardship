@@ -85,3 +85,9 @@ Pending owner review; production has not been changed. The guide uses one centra
 Onboarding distinguishes exploring without an account, using an existing AT identity and moving account providers. The guide performs none of those account operations. Resource rows use the available reading width; narrow/tablet layouts stack descriptions and actions. All styling, responsive layout, focus and enlarged-text behavior is maintained in the central stylesheet; no page-local styles are added.
 
 Destination: atmosphere.loptrlab.com via the existing deployment wrapper after separate owner approval. Hardware/Lifeline analysis belongs in Device Stewardship developer docs, not this public app guide. No changes to Made-Sick, 50 Ways, training or the root Device Stewardship site are included. Hosted preview/build checks do not establish physical iPad or VoiceOver acceptance.
+
+### Spacing and artwork follow-up
+
+Owner screenshots exposed unused space inside full-width panels because paragraph/definition widths were capped at 75ch; those caps are removed. Panel padding and inter-section spacing use a consistent 24/28px rhythm, with responsive overrides in the same central stylesheet. The DID is inline and wraps only as needed, preserving sentence punctuation. The hero's vertical padding is reduced.
+
+A new code-drawn SVG replaces the dark neon JPEG in this guide only: petrol field, paper orbit lines and ochre focal points, using the confirmed palette references. This is a conceptual illustration, not a protocol topology diagram. Dominique supplies creative direction; AI assisted the SVG and layout implementation. The previous JPEG remains available for existing consumers. No newer cross-chat graphic reference was recovered; do not claim the illustration reproduces one.
