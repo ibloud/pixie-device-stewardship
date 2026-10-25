@@ -1,5 +1,8 @@
 # PIXIE Device Stewardship
 
+**Developers and technical reviewers:** [Start with the PIXIE developer testing guide](docs/DEVELOPER-TESTING.md) for reproducible software checks, current limitations, AT Protocol references, open issues and safe contribution boundaries. No personal data or hardware modification is required for the initial test phase.
+
+
 ## Loptr Lab mission and participation
 
 Loptr Lab is a pre-seed, people-over-profit, accessibility-first venture working toward a self-sustaining model within a capitalist economy. Money sustains the work; meaningful change for people is its purpose. We accept funding only on terms that keep people and accessibility first. Our long-term vision includes universal basic income. We aim to bring change to life and leave a transparent record of what we tried, what worked, and what failed so others can carry it forward. This mission governs our projects, funding decisions, and partnerships; it is not a temporary marketing position.
