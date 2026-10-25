@@ -1096,3 +1096,24 @@ html[data-theme="light"] .button.secondary {
   .site-header { flex-wrap: wrap; gap: .75rem; }
   .site-header nav { flex-wrap: wrap; gap: .5rem 1rem; }
 }
+
+/* Header hierarchy: clear PIXIE wordmark, compact descriptive subtitle and fewer navigation items. */
+.site-header { display: flex; align-items: center; gap: clamp(.75rem,1.6vw,1.5rem); justify-content: space-between; }
+.site-header .brand { display: inline-flex; flex: 0 0 auto; align-items: center; gap: .65rem; min-width: 0; }
+.site-header .brand > span:last-child { display: grid; align-content: center; gap: .1rem; }
+.site-header .brand strong { font-size: clamp(1.3rem,1.65vw,1.6rem); line-height: 1.04; letter-spacing: .035em; }
+.site-header .brand small { font-size: .76rem; line-height: 1.25; letter-spacing: .02em; }
+.site-header .pixie-mark { flex: 0 0 auto; }
+.site-header nav { display: flex; flex: 1 1 auto; min-width: 0; justify-content: center; gap: .4rem clamp(.65rem,1.2vw,1.3rem); }
+.site-header nav a { font-size: .92rem; line-height: 1.4; white-space: nowrap; }
+.site-header .button-small { flex: 0 0 auto; white-space: nowrap; }
+.site-header .display-settings > summary { font-size: .92rem; }
+@media (max-width: 1100px) {
+  .site-header { flex-wrap: wrap; justify-content: space-between; }
+  .site-header nav { order: 3; flex: 1 0 100%; justify-content: flex-start; overflow-x: auto; padding-block: .4rem; }
+}
+@media (max-width: 620px) {
+  .site-header .brand strong { font-size: 1.3rem; }
+  .site-header .brand small { font-size: .75rem; }
+  .site-header nav a { font-size: .9rem; }
+}
