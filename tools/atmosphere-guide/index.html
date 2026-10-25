@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply the local preference before paint; no account or network storage.
+      try { const theme = localStorage.getItem('atmosphere-theme'); if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme; } catch {}
+    </script>
     <title>Getting to Know the Atmosphere — Loptr Lab</title>
   </head>
   <body>
