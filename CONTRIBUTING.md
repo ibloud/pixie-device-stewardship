@@ -37,3 +37,20 @@ Features that add covert monitoring, emotional inference, automatic deletion, de
 ## Accessibility acceptance criteria
 
 New interfaces must support keyboard and switch access, visible focus, readable contrast, meaningful labels, reduced motion, plain language, interruption recovery, and a path requiring no precise memory of system-generated identifiers.
+
+## Ecosystem-wide accessibility release gate
+
+This applies to **every Loptr Lab / PIXIE / Made Sick / 50 Ways user-facing site, app, demo and embedded component**, including mobile and legacy-device experiences. Theme consistency is not accessibility verification.
+
+Before merging or publishing UI changes, the PR must record:
+
+- Keyboard-only operation, visible focus, logical tab/reading order, Escape/cancel and focus recovery; adaptive switch where applicable.
+- Screen-reader labels, announcements and semantic headings; test VoiceOver on iPad/Safari and a desktop screen reader for relevant paths.
+- WCAG 2.2 AA contrast checks for normal and large text, controls and focus indicators in every supported theme/state; verify at 200% zoom and narrow viewports without horizontal content loss.
+- Touch target size/spacing, reflow, error identification, form instructions and no color-only status communication.
+- Reduced motion, no unexpected autoplay, accessible media captions/transcripts where applicable, understandable confirmation/undo and no forced memory of machine identifiers.
+- A recorded desktop/mobile/iPad preview link, tested browsers/assistive technologies, findings, known limitations and reviewer sign-off **before merging to main**.
+
+Automated lint and contrast tools are useful but do not replace manual device and assistive-technology testing. Mark each criterion PASS / FAIL / NOT TESTED. Do not describe a preview or site as accessibility accepted while required checks remain NOT TESTED. A failed required check blocks publishing until corrected or an explicit documented exception is approved by the maintainer.
+
+Use the existing shared CSS per site: design tokens and common interaction states belong in that one stylesheet, not duplicated page-level style tags. Changes across separate ecosystem repositories require their own review rather than assumptions of shared implementation.
