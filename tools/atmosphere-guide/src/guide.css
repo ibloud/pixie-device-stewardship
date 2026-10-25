@@ -134,3 +134,12 @@ footer strong { max-width: 22ch; }
  .primary,.categories button[aria-pressed=true],.start-options button[aria-pressed=true] { border: 3px solid Highlight; }
  :where(a,button,summary,select):focus-visible { outline-color: Highlight; }
 }
+
+.migration-tools { margin: 0 0 18px; padding-left: 24px; }
+.migration-tools li { margin-bottom: 14px; color: var(--muted); }
+.migration-tools a { font-weight: 650; }
+
+.guide-intro { padding-block: 20px; margin-block: 8px 24px; border-block: 1px solid var(--line); }
+.guide-intro h2 { font-size: 1.25rem; }
+.guide-intro p { margin-bottom: 12px; }
+.guide-intro p:last-child { margin-bottom: 0; }
