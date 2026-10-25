@@ -247,5 +247,17 @@
   <script src="demo-model.js"></script>
   <script src="demo.js"></script>
   <script src="display-preferences.js"></script>
+  <script>
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape') return;
+      const menu = document.querySelector('.nav-dropdown[open]');
+      if (!menu) return;
+      menu.open = false;
+      menu.querySelector('summary').focus();
+    });
+    document.querySelectorAll('.nav-dropdown-menu a').forEach(link => {
+      link.addEventListener('click', () => { link.closest('details').open = false; });
+    });
+  </script>
 </body>
 </html>
