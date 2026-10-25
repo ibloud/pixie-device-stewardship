@@ -54,3 +54,11 @@ Before merging or publishing UI changes, the PR must record:
 Automated lint and contrast tools are useful but do not replace manual device and assistive-technology testing. Mark each criterion PASS / FAIL / NOT TESTED. Do not describe a preview or site as accessibility accepted while required checks remain NOT TESTED. A failed required check blocks publishing until corrected or an explicit documented exception is approved by the maintainer.
 
 Use the existing shared CSS per site: design tokens and common interaction states belong in that one stylesheet, not duplicated page-level style tags. Changes across separate ecosystem repositories require their own review rather than assumptions of shared implementation.
+
+### Typography, contrast and personal display settings
+
+- Use relative font units (`rem`/`em`) with body text normally at least 1rem and comfortable line height; respect browser font changes and 200% zoom without clipping, hiding controls or horizontal page scrolling.
+- Measure WCAG 2.2 AA contrast (4.5:1 normal text; 3:1 large text; 3:1 non-text UI cues and focus where applicable) in every theme and interactive state; do not infer compliance from palette names.
+- Respect system light/dark and reduced-motion preferences; provide an accessible user-controlled light/dark/system selector and larger-text / high-contrast choices when implemented. Do not promise controls that do not exist.
+- Store display choices locally only with clear reset, no mandatory account or remote tracking. Verify persistence, keyboard operation and accessible announcements.
+- Screen reader, 200% zoom, high-contrast OS modes and reflow acceptance apply to every ecosystem site. Document unsupported combinations as NOT TESTED and block unreviewed releases.
