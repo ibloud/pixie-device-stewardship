@@ -24,25 +24,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <section class="display-settings" aria-label="Display preferences">
-    <span class="settings-title">Display settings</span>
-    <label>Theme
-      <select data-display-setting="theme" aria-label="Color theme">
-        <option value="system">Use device setting</option><option value="dark">Dark</option><option value="light">Light</option>
-      </select>
-    </label>
-    <label>Text size
-      <select data-display-setting="size" aria-label="Text size">
-        <option value="default">Standard</option><option value="large">Larger</option><option value="largest">Largest</option>
-      </select>
-    </label>
-    <label>Contrast
-      <select data-display-setting="contrast" aria-label="Contrast level">
-        <option value="standard">Standard</option><option value="high">High</option>
-      </select>
-    </label>
-    <button type="button" data-reset-display>Reset display</button>
-  </section>
+
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <div class="sim-banner" role="note" aria-label="Simulation disclosure">
@@ -65,6 +47,25 @@
       <a href="https://atmosphere.loptrlab.com/">Atmosphere</a>
     </nav>
     <a class="button button-small" href="https://github.com/ibloud/pixie-device-stewardship">Open repository <span aria-hidden="true">↗</span></a>
+  <details class="display-settings" aria-label="Display preferences"><summary>Display settings</summary><div class="display-settings-panel">
+    
+    <label>Theme
+      <select data-display-setting="theme" aria-label="Color theme">
+        <option value="system">Use device setting</option><option value="dark">Dark</option><option value="light">Light</option>
+      </select>
+    </label>
+    <label>Text size
+      <select data-display-setting="size" aria-label="Text size">
+        <option value="default">Standard</option><option value="large">Larger</option><option value="largest">Largest</option>
+      </select>
+    </label>
+    <label>Contrast
+      <select data-display-setting="contrast" aria-label="Contrast level">
+        <option value="standard">Standard</option><option value="high">High</option>
+      </select>
+    </label>
+    <button type="button" data-reset-display>Reset display</button>
+  </div></details>
   </header>
 
   <main id="main">
