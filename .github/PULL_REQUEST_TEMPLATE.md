@@ -48,3 +48,5 @@ Record PASS / FAIL / NOT TESTED and evidence; do not merge while a required chec
 **Preview URL(s):**
 
 **Open failures, exceptions and reviewer:**
+
+- [ ] Verify readable scalable fonts, measured contrast in theme states, system-preference behavior and local display-setting controls (if implemented); record evidence or NOT TESTED.
