@@ -1117,3 +1117,15 @@ html[data-theme="light"] .button.secondary {
   .site-header .brand small { font-size: .75rem; }
   .site-header nav a { font-size: .9rem; }
 }
+
+/* Accessible grouped site navigation, using native details/summary. */
+.site-header nav .nav-dropdown { position: relative; flex: 0 0 auto; }
+.site-header nav .nav-dropdown > summary { cursor: pointer; list-style: none; padding: .4rem .6rem; color: var(--text); border-radius: .35rem; font-size: .92rem; white-space: nowrap; }
+.site-header nav .nav-dropdown > summary::-webkit-details-marker { display: none; }
+.site-header nav .nav-dropdown > summary::after { content: " ▾"; }
+.site-header nav .nav-dropdown > summary:focus-visible { outline: 3px solid #f5ce82; outline-offset: 3px; }
+.site-header nav .nav-dropdown-menu { position: absolute; z-index: 60; top: calc(100% + .45rem); left: 0; display: grid; min-width: 13rem; padding: .55rem; gap: .15rem; background: var(--surface); border: 2px solid var(--border); border-radius: .65rem; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+.site-header nav .nav-dropdown-menu a { display: block; white-space: normal; padding: .65rem .75rem; min-height: 2.7rem; color: var(--text); }
+.site-header nav .nav-dropdown-menu a:hover, .site-header nav .nav-dropdown-menu a:focus-visible { background: var(--surface-alt); }
+.site-header nav .nav-dropdown:not([open]) .nav-dropdown-menu { display: none; }
+@media(max-width: 620px) { .site-header nav .nav-dropdown-menu { left: 0; max-width: calc(100vw - 2rem); } }
