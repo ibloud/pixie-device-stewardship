@@ -3,8 +3,8 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--ink); background: var(--paper); font-size: 112.5%; font-synthesis: none; line-height: 1.6;
   color-scheme: light;
-  --paper: #f4ebdd; --ink: #242321; --petrol: #285653; --ochre: #e8b949;
-  --plum: #705568; --muted: #57534d; --line: #817868; --surface: #fffaf2; --control-ink: #fffaf2;
+  --paper: #ddd0ba; --ink: #242321; --petrol: #285653; --ochre: #e8b949;
+  --plum: #705568; --muted: #57534d; --line: #817868; --surface: #e8ddca; --control-ink: #e8ddca;
 }
 
 /* System is the default; explicit choices override it without changing page CSS. */
