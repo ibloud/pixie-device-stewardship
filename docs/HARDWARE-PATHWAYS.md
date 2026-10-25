@@ -44,3 +44,7 @@ Use the current project documentation for experiments; do not present mobile Lin
 Hardware claims need exact model, OS/tool versions, test date, task, observed result and recovery notes. Label documentation as PROPOSED, implementation with missing device checks as UNVERIFIED, and only the actually tested capability as verified. Touch, VoiceOver, battery life and Cyber-G audio/MIDI must be tested on hardware before claiming support.
 
 Link to this guide from related PIXIE hardware documents instead of duplicating compatibility tables. Recheck external support before recommending any installation; a last-checked date is not ongoing monitoring.
+
+## Refurbished-phone proposal
+
+See [the developer-review pilot analysis](REFURBISHED-PHONE-PILOT.md) for preinstalled PIXIE, maintained Android alternatives, AT authorization, Lifeline evidence and device/accessibility release gates. This is a proposal, not a supported-phone or malware-removal claim.

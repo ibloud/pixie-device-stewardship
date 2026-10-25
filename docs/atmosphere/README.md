@@ -68,3 +68,38 @@ For a future PIXIE integration, show the chosen account, resolved PDS, destinati
 - One dated footer note covers unverified destination account flows, iPad Safari and VoiceOver. Desktop viewport checks do not establish actual iPad support.
 - Eurosky is operated by a Netherlands foundation; its policies describe EU hosting, not a specifically Netherlands-located server. The PLC endpoint is evidence of account hosting; migration-related sign-in testing remains paused.
 - [Five-second comprehension test](COMPREHENSION_TEST.md): ten newcomers in two arrival groups. Prepared, not run; no response tracking added. Keep Learn unless actual responses justify a change.
+
+
+## Publishing and discovery path — 24 October 2026
+
+Extended the existing guide source in `tools/atmosphere-guide/src/App.jsx`; no separate guide, directory or publication was created. Existing pckt publishing, Leaflet Reader, mu.social discussion and Streamplace sessions serve different tasks. The always-readable example links to 50 Ways for context and Made-Sick for sourced professional/royalty/civic cards. No posting or account integration is implemented.
+
+Primary references reviewed: https://standard.site/docs/implementations/ (pckt and reader implementations), https://about.leaflet.pub/ (Reader, discovery and AT Protocol/RSS subscriptions), https://hello.mu.social/ and https://bsky.app/profile/mu.social (official app description), https://docs.stream.place/docs/guides/start-streaming/quick-start/ (streaming). New entries carry their own review dates; older resource reviews are not silently refreshed. Cross-app discovery and account flows require separate verification and do not guarantee reach.
+
+Release order: review/merge the source PR, then run the existing `Deploy Atmosphere guide` workflow in `ibloud/atmosphere-field-guide`. Verify source-version.json matches the accepted source commit, Publish/Connect categories work, the example is readable at wide/narrow widths, and destination anchors resolve. iPad Safari/VoiceOver acceptance remains separate.
+
+## Theme and onboarding review — October 24, 2026
+
+Pending owner review; production has not been changed. The guide uses one central stylesheet, `tools/atmosphere-guide/src/guide.css`; the separate refinements stylesheet is removed. Theme references: [Solai](https://solai.style/) and [Ruxandra Duru, Rethinking Color Theory](https://design.google/library/color-theory-ruxandra-duru). Warm paper (#F4EBDD), charcoal (#242321), petrol (#285653) and restrained ochre (#E8B949) replace the blue-violet surfaces. Plum remains an optional token, not a dominant surface. These are project palette choices, not claimed verbatim Solai exports.
+
+Onboarding distinguishes exploring without an account, using an existing AT identity and moving account providers. The guide performs none of those account operations. Resource rows use the available reading width; narrow/tablet layouts stack descriptions and actions. All styling, responsive layout, focus and enlarged-text behavior is maintained in the central stylesheet; no page-local styles are added.
+
+Destination: atmosphere.loptrlab.com via the existing deployment wrapper after separate owner approval. Hardware/Lifeline analysis belongs in Device Stewardship developer docs, not this public app guide. No changes to Made-Sick, 50 Ways, training or the root Device Stewardship site are included. Hosted preview/build checks do not establish physical iPad or VoiceOver acceptance.
+
+### Spacing and artwork follow-up
+
+Owner screenshots exposed unused space inside full-width panels because paragraph/definition widths were capped at 75ch; those caps are removed. Panel padding and inter-section spacing use a consistent 24/28px rhythm, with responsive overrides in the same central stylesheet. The DID is inline and wraps only as needed, preserving sentence punctuation. The hero's vertical padding is reduced.
+
+A new code-drawn SVG replaces the dark neon JPEG in this guide only: petrol field, paper orbit lines and ochre focal points, using the confirmed palette references. This is a conceptual illustration, not a protocol topology diagram. Dominique supplies creative direction; AI assisted the SVG and layout implementation. The previous JPEG remains available for existing consumers. No newer cross-chat graphic reference was recovered; do not claim the illustration reproduces one.
+
+### Optional dark theme and low-vision review
+
+System/Light/Dark selection is available in the header, with browser-local preference storage and no account, tracking or network preference service. System follows `prefers-color-scheme`; an explicit choice overrides it. The saved choice is applied before paint; denied storage does not prevent selection. All theme, responsive and forced-color styles remain in the single guide.css.
+
+The default text base is 112.5% (18px at a 16px browser default), with rem-based text sizing, 1.6 body line height, underlined links, visible focus and no fixed text-container heights. Body, secondary and control text have measured WCAG relative-luminance contrast above AA: light body minimum 10.32:1, secondary minimum 5.02:1, link minimum 5.42:1, button text 6.14:1; dark body minimum 12.24:1, secondary minimum 8.55:1, link minimum 9.17:1, button text 9.81:1. Panel boundary contrast is rechecked when surfaces change; controls use the stronger accent boundary. Decorative artwork is not used to communicate essential instructions. Ratio calculations do not establish full WCAG compliance or individual visual comfort.
+
+Review references: [WAI older users](https://www.w3.org/WAI/older-users/), [WCAG text contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), [non-text contrast](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html), [reflow](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html). Age-related near-focus and contrast changes inform the design; age alone does not determine a person's needs. Offer choice rather than labeling dark mode universally accessible. Physical iPad, VoiceOver, OS forced-colors, text-spacing overrides and participant acceptance require separate verification.
+
+### Softer light-theme surfaces
+
+Owner requested less near-white brightness. Light background is now sand #DDD0BA and panels #E8DDCA; dark theme is unchanged. Current text ratios above reflect these surfaces. Build and whitespace checks pass; owner review remains required before main/production.

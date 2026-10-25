@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" fill="none">
+  <title>Independent worlds around a shared identity</title>
+  <!-- New code-drawn illustration: AI-assisted execution of Dominique's palette direction. -->
+  <circle cx="240" cy="200" r="164" fill="#285653"/>
+  <circle cx="240" cy="200" r="151" stroke="#F4EBDD" stroke-opacity=".25"/>
+  <g stroke="#F4EBDD" stroke-width="1.5">
+    <ellipse cx="240" cy="200" rx="186" ry="74" transform="rotate(-28 240 200)"/>
+    <ellipse cx="240" cy="200" rx="158" ry="94" transform="rotate(42 240 200)" stroke-opacity=".65"/>
+    <ellipse cx="240" cy="200" rx="88" ry="180" transform="rotate(22 240 200)" stroke-dasharray="3 7" stroke-opacity=".55"/>
+  </g>
+  <circle cx="240" cy="200" r="53" stroke="#E8B949" stroke-opacity=".6"/>
+  <circle cx="240" cy="200" r="39" fill="#E8B949"/>
+  <g stroke="#285653" stroke-width="4" fill="#F4EBDD">
+    <circle cx="106" cy="103" r="19"/>
+    <circle cx="366" cy="126" r="26" fill="#E8B949"/>
+    <circle cx="118" cy="285" r="24"/>
+    <circle cx="330" cy="314" r="17" fill="#B8CCC5"/>
+  </g>
+  <g fill="#285653">
+    <circle cx="43" cy="220" r="5"/><circle cx="408" cy="282" r="7"/>
+    <path d="M378 47v18m-9-9h18M62 325v14m-7-7h14" stroke="#285653" stroke-width="2"/>
+  </g>
+  <path d="M198 371h84" stroke="#C8BBA9" stroke-width="2"/>
+</svg>
