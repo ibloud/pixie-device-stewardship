@@ -22,8 +22,22 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <section class="display-settings" aria-label="Display preferences">
-    <span class="settings-title">Display settings</span>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="PIXIE home">
+      <span class="pixie-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span><strong>PIXIE</strong><small>hackathon build</small></span>
+    </a>
+    <nav aria-label="Page navigation">
+      <a href="#status">Status</a>
+      <a href="#costs">Costs</a>
+      <a href="#rules">Rules fit</a>
+      <a href="#forward">Forward path</a>
+    </nav>
+    <a class="button button-small" href="https://amazonappdev2026.devpost.com/">Devpost <span aria-hidden="true">↗</span></a>
+  <details class="display-settings" aria-label="Display preferences"><summary>Display settings</summary><div class="display-settings-panel">
+    
     <label>Theme
       <select data-display-setting="theme" aria-label="Color theme">
         <option value="system">Use device setting</option><option value="dark">Dark</option><option value="light">Light</option>
@@ -40,20 +54,7 @@
       </select>
     </label>
     <button type="button" data-reset-display>Reset display</button>
-  </section>
-  <a class="skip-link" href="#main">Skip to main content</a>
-  <header class="site-header" id="top">
-    <a class="brand" href="index.html" aria-label="PIXIE home">
-      <span class="pixie-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      <span><strong>PIXIE</strong><small>hackathon build</small></span>
-    </a>
-    <nav aria-label="Page navigation">
-      <a href="#status">Status</a>
-      <a href="#costs">Costs</a>
-      <a href="#rules">Rules fit</a>
-      <a href="#forward">Forward path</a>
-    </nav>
-    <a class="button button-small" href="https://amazonappdev2026.devpost.com/">Devpost <span aria-hidden="true">↗</span></a>
+  </div></details>
   </header>
 
   <main id="main" class="hackathon-page">
