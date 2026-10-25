@@ -1042,3 +1042,36 @@ html[data-theme="dark"] :is(a, .text-link), html[data-theme="system"] :is(a, .te
   html[data-theme="system"] :is(.site-header, .status-card, .demo-shell, .message-bubble) { background-color: var(--surface); color: var(--text); }
 }
 @media (max-width: 650px) { .display-settings { margin-inline: .5rem; } .display-settings label { flex: 1 1 8rem; } }
+
+/* Accessibility QA: controls must not inherit white text on a pale fill.
+   Match theme preference and OS setting, including legacy .button.primary specificity. */
+html[data-theme="dark"] .button,
+html[data-theme="dark"] .button.primary,
+html[data-theme="system"] .button,
+html[data-theme="system"] .button.primary {
+  background: #b7d6ca; color: #10211d; border-color: #b7d6ca;
+}
+html[data-theme="dark"] .button-ghost,
+html[data-theme="dark"] .button.secondary,
+html[data-theme="system"] .button-ghost,
+html[data-theme="system"] .button.secondary {
+  background: transparent; color: #d4eee6; border-color: #95c5b7;
+}
+html[data-theme="light"] .button,
+html[data-theme="light"] .button.primary {
+  background: #184b40; color: #ffffff; border-color: #184b40;
+}
+html[data-theme="light"] .button-ghost,
+html[data-theme="light"] .button.secondary {
+  background: transparent; color: #184b40; border-color: #184b40;
+}
+@media (prefers-color-scheme: light) {
+  html[data-theme="system"] .button,
+  html[data-theme="system"] .button.primary {
+    background: #184b40; color: #fff; border-color: #184b40;
+  }
+  html[data-theme="system"] .button-ghost,
+  html[data-theme="system"] .button.secondary {
+    background: transparent; color: #184b40; border-color: #184b40;
+  }
+}
