@@ -16,4 +16,5 @@ jobs:
           node-version: '24'
       - run: node --check demo.js
       - run: node --check demo-model.js
+      - run: node --check display-preferences.js
       - run: node --test tests/*.test.js
