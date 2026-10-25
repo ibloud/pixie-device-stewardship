@@ -103,3 +103,7 @@ Review references: [WAI older users](https://www.w3.org/WAI/older-users/), [WCAG
 ### Softer light-theme surfaces
 
 Owner requested less near-white brightness. Light background is now sand #DDD0BA and panels #E8DDCA; dark theme is unchanged. Current text ratios above reflect these surfaces. Build and whitespace checks pass; owner review remains required before main/production.
+
+### Migration tools in onboarding
+
+The move-account panel links PDS MOOver (https://pdsmoover.com/), Eurosky EU-HAUL (https://move.eurosky.tech/) with its official migration guide (https://eurosky.tech/help/migrating-to-eurosky/), and Move to Blacksky (https://move.blacksky.community/) with its official guide (https://docs.blacksky.community/migrating-to-blacksky-pds-complete-guide). Reviewed October 24, 2026. Official Blacksky instructions distinguish community-restricted and open hosting options and explain that app use does not require migration. Eurosky's help page documents invitation and custom-handle steps; the migration application itself could not be fetched by the research tool. Do not imply a successful end-to-end migration test. PDS MOOver currently describes an OAuth beta; do not assume every operation avoids password entry. No historical record identified which tool Dominique used; these are available routes, not an attribution of past use. No credentials are collected by the guide. External account moves, backups and recovery have not been performed in this change.
