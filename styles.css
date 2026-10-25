@@ -1075,3 +1075,14 @@ html[data-theme="light"] .button.secondary {
     background: transparent; color: #184b40; border-color: #184b40;
   }
 }
+
+/* Compact, on-demand accessibility preferences within site navigation. */
+.site-header .display-settings { position: relative; display: block; margin: 0; padding: 0; width: auto; max-width: none; border: 0; background: transparent; flex: 0 0 auto; }
+.site-header .display-settings > summary { list-style: none; cursor: pointer; border: 1px solid var(--border); border-radius: .5rem; padding: .55rem .75rem; color: var(--text); font-weight: 650; white-space: nowrap; }
+.site-header .display-settings > summary::-webkit-details-marker { display: none; }
+.site-header .display-settings > summary::after { content: " ⚙"; }
+.site-header .display-settings > summary:focus-visible { outline: 3px solid #f5ce82; outline-offset: 3px; }
+.site-header .display-settings-panel { position: absolute; z-index: 40; top: calc(100% + .5rem); right: 0; width: min(22rem, calc(100vw - 2rem)); display: grid; gap: .7rem; padding: 1rem; background: var(--surface); border: 2px solid var(--border); border-radius: .75rem; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+.site-header .display-settings:not([open]) .display-settings-panel { display: none; }
+.site-header .display-settings-panel label { display: grid; gap: .3rem; }
+@media(max-width: 850px) { .site-header .display-settings-panel { right: 0; } }
