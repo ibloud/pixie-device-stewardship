@@ -37,3 +37,28 @@ Features that add covert monitoring, emotional inference, automatic deletion, de
 ## Accessibility acceptance criteria
 
 New interfaces must support keyboard and switch access, visible focus, readable contrast, meaningful labels, reduced motion, plain language, interruption recovery, and a path requiring no precise memory of system-generated identifiers.
+
+## Ecosystem-wide accessibility release gate
+
+This applies to **every Loptr Lab / PIXIE / Made Sick / 50 Ways user-facing site, app, demo and embedded component**, including mobile and legacy-device experiences. Theme consistency is not accessibility verification.
+
+Before merging or publishing UI changes, the PR must record:
+
+- Keyboard-only operation, visible focus, logical tab/reading order, Escape/cancel and focus recovery; adaptive switch where applicable.
+- Screen-reader labels, announcements and semantic headings; test VoiceOver on iPad/Safari and a desktop screen reader for relevant paths.
+- WCAG 2.2 AA contrast checks for normal and large text, controls and focus indicators in every supported theme/state; verify at 200% zoom and narrow viewports without horizontal content loss.
+- Touch target size/spacing, reflow, error identification, form instructions and no color-only status communication.
+- Reduced motion, no unexpected autoplay, accessible media captions/transcripts where applicable, understandable confirmation/undo and no forced memory of machine identifiers.
+- A recorded desktop/mobile/iPad preview link, tested browsers/assistive technologies, findings, known limitations and reviewer sign-off **before merging to main**.
+
+Automated lint and contrast tools are useful but do not replace manual device and assistive-technology testing. Mark each criterion PASS / FAIL / NOT TESTED. Do not describe a preview or site as accessibility accepted while required checks remain NOT TESTED. A failed required check blocks publishing until corrected or an explicit documented exception is approved by the maintainer.
+
+Use the existing shared CSS per site: design tokens and common interaction states belong in that one stylesheet, not duplicated page-level style tags. Changes across separate ecosystem repositories require their own review rather than assumptions of shared implementation.
+
+### Typography, contrast and personal display settings
+
+- Use relative font units (`rem`/`em`) with body text normally at least 1rem and comfortable line height; respect browser font changes and 200% zoom without clipping, hiding controls or horizontal page scrolling.
+- Measure WCAG 2.2 AA contrast (4.5:1 normal text; 3:1 large text; 3:1 non-text UI cues and focus where applicable) in every theme and interactive state; do not infer compliance from palette names.
+- Respect system light/dark and reduced-motion preferences; provide an accessible user-controlled light/dark/system selector and larger-text / high-contrast choices when implemented. Do not promise controls that do not exist.
+- Store display choices locally only with clear reset, no mandatory account or remote tracking. Verify persistence, keyboard operation and accessible announcements.
+- Screen reader, 200% zoom, high-contrast OS modes and reflow acceptance apply to every ecosystem site. Document unsupported combinations as NOT TESTED and block unreviewed releases.

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11132b">
+  <meta name="theme-color" content="#111214">
   <meta name="description" content="Review PIXIE’s Alexa+ hackathon planning, estimated costs, research foundation, and delivery gates. Proposed work is distinguished from completed work.">
   <meta property="og:title" content="PIXIE — Amazon Hackathon Development Status">
   <meta property="og:description" content="Review PIXIE’s Alexa+ hackathon planning, estimated costs, research foundation, and delivery gates. Proposed work is distinguished from completed work.">
@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="PIXIE home">
@@ -35,6 +36,25 @@
       <a href="#forward">Forward path</a>
     </nav>
     <a class="button button-small" href="https://amazonappdev2026.devpost.com/">Devpost <span aria-hidden="true">↗</span></a>
+  <details class="display-settings" aria-label="Display preferences"><summary>Display settings</summary><div class="display-settings-panel">
+    
+    <label>Theme
+      <select data-display-setting="theme" aria-label="Color theme">
+        <option value="system">Use device setting</option><option value="dark">Dark</option><option value="light">Light</option>
+      </select>
+    </label>
+    <label>Text size
+      <select data-display-setting="size" aria-label="Text size">
+        <option value="default">Standard</option><option value="large">Larger</option><option value="largest">Largest</option>
+      </select>
+    </label>
+    <label>Contrast
+      <select data-display-setting="contrast" aria-label="Contrast level">
+        <option value="standard">Standard</option><option value="high">High</option>
+      </select>
+    </label>
+    <button type="button" data-reset-display>Reset display</button>
+  </div></details>
   </header>
 
   <main id="main" class="hackathon-page">
@@ -149,5 +169,6 @@
     <p>People over profit · Accessibility first · Labor made visible</p>
     <p class="fine-print">Planning estimates are provisional. Official Devpost rules and current website information prevail.</p>
   </footer>
+  <script src="display-preferences.js"></script>
 </body>
 </html>

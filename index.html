@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#11132b">
+  <meta name="theme-color" content="#111214">
   <meta name="description" content="Explore PIXIE Device Stewardship, Loptr Lab’s consent-first research and local planning demo for creative files, provenance, and returning to work.">
   <meta property="og:title" content="PIXIE — Device stewardship by Loptr Lab">
   <meta property="og:description" content="Explore PIXIE Device Stewardship, Loptr Lab’s consent-first research and local planning demo for creative files, provenance, and returning to work.">
@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <div class="sim-banner" role="note" aria-label="Simulation disclosure">
@@ -38,14 +39,31 @@
     </a>
     <nav aria-label="Primary navigation">
       <a href="#demo">Demo</a>
-      <a href="#hardware">Hardware</a><a href="#feedback">Feedback</a>
+      <a href="#hardware">Hardware</a>
       <a href="#protocol">Protocol</a>
-      <a href="#stewardship">Private health</a>
       <a href="#ecosystem">Ecosystem</a>
       <a href="#research">Research</a>
-      <a href="https://atmosphere.loptrlab.com/">Atmosphere</a>
     </nav>
     <a class="button button-small" href="https://github.com/ibloud/pixie-device-stewardship">Open repository <span aria-hidden="true">↗</span></a>
+  <details class="display-settings" aria-label="Display preferences"><summary>Display settings</summary><div class="display-settings-panel">
+    
+    <label>Theme
+      <select data-display-setting="theme" aria-label="Color theme">
+        <option value="system">Use device setting</option><option value="dark">Dark</option><option value="light">Light</option>
+      </select>
+    </label>
+    <label>Text size
+      <select data-display-setting="size" aria-label="Text size">
+        <option value="default">Standard</option><option value="large">Larger</option><option value="largest">Largest</option>
+      </select>
+    </label>
+    <label>Contrast
+      <select data-display-setting="contrast" aria-label="Contrast level">
+        <option value="standard">Standard</option><option value="high">High</option>
+      </select>
+    </label>
+    <button type="button" data-reset-display>Reset display</button>
+  </div></details>
   </header>
 
   <main id="main">
@@ -220,5 +238,6 @@
 
   <script src="demo-model.js"></script>
   <script src="demo.js"></script>
+  <script src="display-preferences.js"></script>
 </body>
 </html>
