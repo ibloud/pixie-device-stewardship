@@ -1,21 +1,27 @@
+/* PIXIE shared atmosphere theme. One active stylesheet for all site pages.
+   Palette adapted from the existing repo's theme/raccoon-city.css reference;
+   emergency red is reserved for caution, not routine navigation. */
 :root {
-  --bg: #11132b;
-  --surface: #191c3d;
-  --surface-alt: #222650;
-  --ink: #11132b;
-  --text: #ffffff;
-  --muted: #a3a6c8;
-  --accent: #ff6b6b;
-  --accent-hover: #ff5252;
-  --blue: #4d96ff;
-  --blue-light: #eef8ff;
+  --bg: #111214;
+  --surface: #1b1d1f;
+  --surface-alt: #2a2b2b;
+  --ink: #111214;
+  --text: #e5e1d8;
+  --muted: #b4b0a7;
+  --accent: #b7d6ca;
+  --accent-hover: #d3e7de;
+  --blue: #8fc4ba;
+  --blue-light: #edf6f0;
   --white: #ffffff;
-  --border: rgba(255, 255, 255, 0.15);
-  --line: 2px solid #11132b;
+  --border: rgba(229,225,216,.22);
+  --line: 1px solid rgba(229,225,216,.22);
   --radius: 16px;
-  --shadow: 4px 4px 0px #11132b;
-  --max: 1140px;
+  --shadow: 0 12px 36px rgba(0,0,0,.2);
+  --max: 1200px;
+  --pixie-red: #a33a34;
+  --pixie-paper: #e5e1d8;
 }
+
 
 /* Scoped interactive-demo additions; retain the existing visual language. */
 [hidden] { display: none !important; }
@@ -948,3 +954,26 @@ footer {
 .demo-choice.primary { color: #11132b; background: #9cc6ff; }
 .demo-choice, select, .demo-input { min-height: 44px; }
 .demo-choice { text-decoration: none; }
+
+html { scroll-padding-top: 5rem; }
+body { background: #111214; }
+:where(main, section, article, header, footer) { min-width: 0; }
+:where(p, li, h1, h2, h3, a, code, pre) { overflow-wrap: anywhere; }
+:where(section, .dev-section) { scroll-margin-top: 5rem; }
+:where(.container, .hero, .dev-section, .hackathon-page, .site-header, .site-footer) { max-width: min(var(--max), 100%); }
+:where(.site-header, .site-footer, .hero, .dev-section) { padding-left: clamp(1rem,3vw,2.5rem); padding-right: clamp(1rem,3vw,2.5rem); }
+:where(.status-card, .demo-shell, .message-bubble) { border-color: var(--border); }
+:where(.button, .demo-choice.primary) { color: #101716; }
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid #f5ce82; outline-offset: 3px; }
+.sim-banner { background: #f1e8d8; color: #29231e; border-bottom: 3px solid var(--pixie-red); }
+.sim-pill { background: #922c27; color: #fff; }
+.atmosphere-redirect { width: min(44rem, calc(100% - 2rem)); margin: clamp(2rem, 9vh, 6rem) auto; padding: clamp(1.25rem,4vw,2.5rem); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.atmosphere-redirect a { color: var(--accent); }
+@media (max-width: 700px) {
+  .hero, .dev-section, .site-header, .site-footer { padding-inline: 1rem; }
+  .hero h1 { font-size: clamp(2rem,8vw,3.5rem); }
+  .actions, .demo-choices { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
