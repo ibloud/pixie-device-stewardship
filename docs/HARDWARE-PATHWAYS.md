@@ -55,14 +55,14 @@ Link to this guide from related PIXIE hardware documents instead of duplicating 
 | Check | Executable evidence | Result / limitation |
 |---|---|---|
 | Baseline demo behavior | `tests/demo-model.test.js`: transcript opt-out, filenames, new-session reset | Existing GitHub workflow reported **PASS** on documentation PR head `d150814f`: [CI run](https://github.com/ibloud/pixie-device-stewardship/actions/runs/40148389375). This is the demo model only. |
-| Opt-in and data carry-over | `tests/privacy-boundaries.test.js`: default no transcript; reset does not carry a private draft; no external action claimed | **PENDING CI result on this branch.** An assertion of local model behavior, not proof of storage deletion. |
-| Provider-claim safety | New smoke test checks that selecting translation does not claim provider contact or audio processing | **PENDING CI result.** A simulated response is not a network-capture audit. |
+| Opt-in and data carry-over | `tests/privacy-boundaries.test.js`: default no transcript; reset does not carry a private draft; no external action claimed | **PASS** — [GitHub Actions run 40148904654](https://github.com/ibloud/pixie-device-stewardship/actions/runs/40148904654). An assertion of local model behavior, not proof of storage deletion. |
+| Provider-claim safety | New smoke test checks that selecting translation does not claim provider contact or audio processing | **PASS** — [GitHub Actions run 40148904654](https://github.com/ibloud/pixie-device-stewardship/actions/runs/40148904654). A simulated response is not a network-capture audit. |
 | Filename sanitization | New smoke test rejects traversal and markup input across modeled scenarios | **PENDING CI result.** Does not test Android filesystem APIs. |
 | Consent and revocation for live external connectors | No live test harness exists in the inspected demo | **NOT TESTED**; issue #29. |
 | Retention, remote deletion and backups | No storage/service deletion implementation exists in the inspected demo | **NOT TESTED**; issue #28. |
 | Android permissions, TalkBack, ROM and verified boot | No runnable Android artifact or device available in this repository | **NOT TESTED**; issue #30. |
 
-**Execution boundary:** Repository checkout from the local container was blocked by unavailable DNS to GitHub. The new tests are committed to the existing branch and wired into the repository's GitHub Actions workflow, which supplies the runnable verification environment. Update the pending rows from the linked workflow result after it completes. A CI pass is not evidence that the full privacy design, real-device permission revocation, or firmware security is implemented.
+**Execution boundary:** Repository checkout from the local container was blocked by unavailable DNS to GitHub. The new tests are committed to the existing branch and wired into the repository's GitHub Actions workflow, which supplies the runnable verification environment. The GitHub Actions workflow passed on commit `3fe5032e`, which includes the new smoke tests and test runner changes; the later documentation-only edit does not alter test code. A CI pass is not evidence that the full privacy design, real-device permission revocation, or firmware security is implemented.
 
 ### First hardware gate
 
