@@ -1189,3 +1189,14 @@ html[data-theme="light"] .button.secondary {
   .site-header nav .nav-dropdown > summary,
   .site-header .display-settings > summary { font-size: 1rem; }
 }
+
+/* Keep audience labels together across the available hero width.
+   Preserve natural wrap when zoomed or on narrow screens. */
+.hero > .audience-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: -.8rem; }
+.hero > .audience-tags span { white-space: nowrap; }
+@media (min-width: 1050px) {
+  .hero > .audience-tags { flex-wrap: nowrap; }
+}
+@media (max-width: 700px) {
+  .hero > .audience-tags { grid-column: 1; margin-top: 0; }
+}
