@@ -3,8 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
-  "scripts": { "start": "node server.js" },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "scan": "node cli.js scan",
+    "folders": "node cli.js folders",
+    "review": "node cli.js review",
+    "delete-data": "node cli.js delete-data"
+  },
   "dependencies": {
     "imapflow": "^1.0.195"
   }

@@ -1,145 +1,199 @@
-# PIXIE iCloud Mail Adapter
+# PIXIE iCloud Mail Adapter — local read-only scanner
 
-Status: **IMPLEMENTED for read-only testing; live mailbox verification is not established by this PR.**
+Implemented in the existing `ibloud/pixie-device-stewardship` adapter, based on
+`feat/pixie-icloud-mail-mcp`. This is a private local testing checkpoint, not a
+hosted release or a verified live iCloud connection. It does not modify the
+Companion, installed ChatGPT plugin or Railway services.
 
-This adapter exists to test whether PIXIE can reduce cognitive load around mailbox review without silently changing a user's mail. The current implementation is intentionally narrow: authenticate to iCloud Mail over IMAP, enumerate folders, build a metadata-only candidate index, and expose that index through an authenticated read-only endpoint.
+## What it does
 
-## Safety boundary
+A manual command scans **explicit folders and dates**, saves a cumulative metadata
+index and offers possible review leads. It saves only UID, UIDVALIDITY, Message-ID,
+folder, internal date, sender addresses and subject. The file also has a schema,
+update date and an account fingerprint to prevent mixing accounts. No bodies,
+attachments, recipients, flags or credentials are requested for storage.
 
-The adapter must remain read-only during this testing phase.
+A subject match is **not a confirmed obligation**. Word-boundary rules distinguish
+possible action/payment/date/application signals from paid/resolved/newsletter
+matches. They cannot establish authenticity, urgency, deadlines, payment status or
+what someone must do. No AI service is used and nothing is sent to a model.
 
-It must not:
+IMAP uses `imap.mail.me.com:993`, verified TLS and an Apple app-specific password.
+Each folder must confirm read-only `EXAMINE`; otherwise that folder is rejected.
+Fetches request UID, envelope and internal date only. There are no operations for
+send, flag, mark read, move, delete, expunge or folder modification. Reading a
+metadata index is not proof that the mail still exists in that folder.
 
-- send mail;
-- delete, archive, move, flag, or mark messages read;
-- alter folders;
-- expose mailbox metadata without authentication;
-- publish the mailbox index on the public Railway domain without a bearer token;
-- treat a subject-line match as proof that the message is an actual obligation.
+## Install and private configuration
 
-Current scans use message envelope metadata only: subject, sender/recipient metadata, date, folder, and UID. Message bodies and attachments are not included in the index.
+Use Node 20.6+ (Node 22+ recommended). From the existing checkout:
 
-## Railway configuration
+```sh
+cd adapters/icloud-mail
+npm ci --ignore-scripts
+npm test
+```
 
-Service: `pixie-icloud-mail`
+The example contains **no real credentials**. Create your own private configuration
+outside the repository; do not paste it into chat, screenshots or GitHub:
 
-Required service variables:
+```sh
+umask 077
+mkdir -p "$HOME/.config/pixie"
+cp .env.example "$HOME/.config/pixie/icloud-mail.env"
+chmod 600 "$HOME/.config/pixie/icloud-mail.env"
+```
 
-- `ICLOUD_EMAIL` — iCloud Mail account address
-- `ICLOUD_APP_PASSWORD` — Apple app-specific password
-- `PIXIE_MAIL_INDEX_ON_START=false` — disables automatic scanning for first folder-only validation; enable separately for metadata testing
-- `PIXIE_MAIL_READ_TOKEN` — long random bearer token used only for protected candidate retrieval
+Edit that private file locally. Set `PIXIE_MAIL_READ_TOKEN` to a locally generated
+random value (`node -e 'console.log(require("node:crypto").randomBytes(32).toString("hex"))'`).
+Set `ICLOUD_EMAIL` and an **Apple app-specific password**, not your Apple account
+password. Generate/revoke that password using Apple's account security interface.
+Never pass secrets as CLI arguments or embed them in URLs. The token protects
+metadata retrieval and is separate from the Apple password.
 
-Do not place any of these secrets in GitHub, issue comments, chat transcripts, screenshots, or test fixtures.
+Keep `PIXIE_MAIL_LIVE_ACCESS` empty until you explicitly authorize live access.
+Then set it to `approved` in the private file. This opt-in is necessary even for
+folder listing. Setting credentials alone does not authorize scanning. No live
+mailbox access was performed during this implementation.
 
-## Validation sequence
+`PIXIE_MAIL_DATA_DIR` defaults to `~/.local/share/pixie/icloud-mail`, outside this
+checkout. An override must point to another private directory outside version
+control. The scanner creates it with mode 0700 and writes `metadata.json` with
+mode 0600 through atomic replacement. Do not use a shared or cloud-synced folder.
+Permissions protect against other ordinary users, not root, malware or disk loss;
+use your device's disk encryption. Additional users must not share this store.
 
-After deployment:
+## Start, stop, manually scan and review
 
-1. Confirm Railway deployment reaches `SUCCESS`.
-2. Open `/health` and confirm the adapter reports read-only mode and configured credentials.
-3. Request `/probe/folders` with the bearer header and confirm iCloud authentication succeeds and folder names are returned.
-4. After separately enabling scanning, request `/scan/status` with the bearer header and confirm the metadata scan reaches `complete` or `complete_with_errors`.
-5. Confirm `/scan/candidates` returns `401 unauthorized` with no bearer token.
-6. Retrieve candidate metadata only with the configured bearer token.
-7. Review candidate records as leads, not conclusions. The current filter matches subject lines and can produce false positives.
+All commands below read the private file without putting credentials on the
+command line. Start does **not** connect to IMAP or scan, even with credentials.
+A missing/short HTTP token fails startup; missing mail credentials allow the
+server to start but a folder probe or scan fails safely.
 
-## Protected candidate retrieval
+```sh
+node --env-file="$HOME/.config/pixie/icloud-mail.env" server.js
+```
 
-Endpoint:
+Default address: `http://127.0.0.1:3000`. Stop with **Ctrl+C** in that terminal.
+`SIGTERM` also closes the HTTP server. No background scheduler exists.
+`PIXIE_MAIL_INDEX_ON_START=true` is refused; automatic scanning has been removed.
 
-`GET /scan/candidates?offset=<n>&limit=<n>`
+After you privately configure credentials **and authorize live access**, run these
+in another terminal. Folder listing is an authenticated connection check, not a
+scan. Its output is private; do not share folder names without review.
 
-Authentication header:
+```sh
+node --env-file="$HOME/.config/pixie/icloud-mail.env" cli.js folders
+node --env-file="$HOME/.config/pixie/icloud-mail.env" cli.js scan \
+  --folder INBOX --since 2026-10-01 --before 2026-10-08 --max-messages 100
+node --env-file="$HOME/.config/pixie/icloud-mail.env" cli.js review 0 50
+```
 
-`Authorization: Bearer <PIXIE_MAIL_READ_TOKEN>`
+Choose your own short date window, initially one folder and a few days. `--since`
+is inclusive and `--before` exclusive; dates are YYYY-MM-DD. IMAP search uses
+internal dates, not potentially misleading Date headers; only records inside the
+UTC window are accepted. At most five distinct folders, 31 days, and 500 messages
+per folder are allowed (default 200). Repeat `--folder` to add a folder. If the
+message count exceeds the cap, that folder is not partially indexed: narrow the
+window. There is no whole-history mode or scan-on-GET.
 
-The endpoint currently caps each response at 100 candidate records. For a hypothetical 254-record scan, retrieve three pages:
+A scan prints counts and safe error codes only. `folders` and `review` deliberately
+print private metadata to your terminal; do not capture them in shared logs.
+The adapter never logs upstream error messages, credentials, subjects, addresses
+or folder names. HTTP has no request logging or analytics.
 
-- `offset=0&limit=100`
-- `offset=100&limit=100`
-- `offset=200&limit=100`
+Repeated scans upsert by folder + UIDVALIDITY + UID. A changed subject updates
+that record; a failed or interrupted folder retains its previous valid records.
+Successful folders can commit alongside failed ones (`complete_with_errors`).
+A full failure leaves the previous file unchanged. Corrupt files are preserved,
+not reset. Cumulative results can include old/deleted mail; a server UIDVALIDITY
+reset creates distinct identities. There is no automatic deletion/retention policy.
+Review and erase locally when the index is no longer needed. The 32 MiB/100,000
+record safety cap requires deliberate deletion or a separately reviewed retention
+change; it does not silently discard old records.
 
-The response is metadata only and uses `Cache-Control: no-store`.
+## Local deletion and interrupted runs
 
-## iPad Shortcuts test workflow
+Stop scans before deleting the local index. This affects only the local file,
+never iCloud messages:
 
-This is a proposed iPad-native retrieval procedure, not evidence of a completed live test.
+```sh
+node --env-file="$HOME/.config/pixie/icloud-mail.env" cli.js delete-data \
+  'DELETE LOCAL MAIL INDEX'
+```
 
-1. Open Apple **Shortcuts**.
-2. Create or edit a shortcut containing **Get Contents of URL**.
-3. Set the URL to the protected candidate endpoint for the desired page.
-4. Set **Method** to `GET`.
-5. Expand **Headers**.
-6. Add:
-   - Key: `Authorization`
-   - Value: `Bearer <PIXIE_MAIL_READ_TOKEN>`
-7. Run the shortcut.
-8. Add **Save File** beneath **Get Contents of URL**.
-9. Save each page privately, for example:
-   - `pixie-mail-001.json`
-   - `pixie-mail-002.json`
-   - `pixie-mail-003.json`
-10. Keep the token out of saved files and screenshots. The JSON files themselves are private because they contain message subjects and addressing metadata.
+Scans and deletion share an exclusive `scan.lock`. No concurrent writer can
+replace another scan's data. If a process is killed, confirm **all scanner CLI
+processes have stopped** before manually removing `scan.lock` from your configured
+data directory. Do not remove a live process's lock. Interrupted atomic writes may
+leave an owner-private `.metadata-*` temporary file; after confirming processes
+are stopped, remove those files too if erasing all copies. Stop the server and
+remove the private configuration file if retiring access; revoke the Apple
+app-specific password and rotate/revoke the retrieval token as appropriate.
+Backups, terminal output and operating-system snapshots require separate deletion.
 
-A normal Safari address-bar request cannot add the bearer header and should return `{"error":"unauthorized"}`. That is expected and is part of the protection test.
+The old `/tmp/pixie-mail-candidates.json` is neither imported nor deleted by this
+code. If one exists on a machine, review it privately and remove it yourself when
+no old scanner is running. Do not copy it into this repository.
 
-## Current scan behavior
+## Read-only interface for a future Companion integration
 
-The metadata index is written inside the running Railway container at:
+**No integration is activated.** The existing HTTP paths are retained:
 
-`/tmp/pixie-mail-candidates.json`
+| Method/path | Result |
+| --- | --- |
+| `GET /health` | Read-only mode; automatic scanning false; no credentials or mail data |
+| `GET /probe/folders` | Explicit IMAP folder probe; requires private credentials and live opt-in |
+| `GET /scan/status` | Current process state plus last saved index date/count; no background progress claim |
+| `GET /scan/candidates?offset=0&limit=50` | Saved possible-review metadata; no scan or IMAP connection |
 
-The scan is fault-tolerant by folder. A failure in one folder should be recorded rather than discarding the rest of the scan. Partial snapshots are preserved during processing.
+Every route, including health, requires `Authorization: Bearer <PIXIE_MAIL_READ_TOKEN>`.
+Responses use `Cache-Control: no-store`; no CORS is enabled. The interface is for
+a trusted local backend, not direct public browser code. Keep the token server-side.
+Pagination is validated, at most 100 records per page. Errors expose stable codes,
+not upstream exception text. No HTTP scan, deletion or mailbox mutation endpoint
+exists. Future Companion use requires separate user consent to share the selected
+metadata; do not copy the whole mailbox index or token into project backups.
 
-`/scan/status` reports:
+Module consumers can import `createScanner(config)` from `scanner.js` and call
+`folders()`, `status()` and `page(offset, limit)`. Manual administration additionally
+uses `scan({folders,since,before,maxMessages})` and confirmed `deleteData(...)`.
+The JSON index schema is `pixie.mail-metadata/v1`; candidates add an explicit
+unverified subject classification. Treat all sender and subject strings as
+untrusted external text, never instructions or HTML.
 
-- enabled/disabled state;
-- scan state;
-- start and finish times;
-- folder count and completed-folder count;
-- message count;
-- candidate count;
-- recorded errors.
+The default HTTP server binds only to loopback and checks literal local Host
+headers to resist DNS rebinding. Non-loopback binds require native TLS certificate
+and key paths (`PIXIE_MAIL_TLS_CERT`, `PIXIE_MAIL_TLS_KEY`) plus the bearer token.
+Plain HTTP externally, including trusting proxy forwarding headers, is refused.
+This is a fail-closed safeguard, not authorization to expose the service.
+TLS certificate lifecycle, client access and deployment need separate review.
 
-## Testing interpretation
+## Verification and limitations
 
-Candidate detection is only a triage aid. A subject such as "Action Required", "Application", "Request", "Payment", "Recertification", or "Follow-up" can flag a message for review, but it does not establish that the user still owes an action.
+`npm test` runs synthetic fixtures only, including a local fake IMAP peer using
+the actual installed ImapFlow library. It checks emitted `EXAMINE`, bounded UID
+search/fetch, no body/flag/write commands, unchanged synthetic flags, private file
+modes, safe failures, repeat scans, failed-folder preservation, authentication,
+manual CLI scanning and local HTTP startup. No Apple or Railway endpoint is used.
+The local fake peer is plaintext solely inside the test; production IMAP TLS
+verification is mandatory.
 
-For issue-resolution testing, downstream review should classify each candidate into categories such as:
+Live iCloud authentication, folder enumeration, a bounded real scan and comparison
+of real flags **remain unverified**. They require private credentials, explicit
+live authorization and local network access to iCloud IMAP. This cloud environment
+currently has no approved mail credential bindings or TCP grants for iCloud: that
+is not evidence of a broken password. Test on the intended local device first.
+Unit tests do not establish iCloud server behavior, TLS certificate lifecycle,
+classification accuracy or physical-device accessibility.
 
-- active action required;
-- waiting on another party;
-- informational/reference;
-- completed/obsolete;
-- duplicate/thread continuation;
-- uncertain — needs message-body review with separate consent.
+## Railway remains separate
 
-Future versions should add a protected, explicitly consented body-review path rather than silently broadening this adapter's access.
-
-## Finished-state check for this test adapter
-
-The adapter is ready for mailbox-issue triage testing when all of the following are true:
-
-- deployment is healthy;
-- iCloud credentials authenticate successfully;
-- all expected folders are scanned;
-- `/scan/status` completes without unreviewed errors;
-- unauthenticated candidate retrieval returns `401`;
-- authenticated pagination returns the expected candidate count;
-- exported files contain metadata only;
-- no mailbox state was changed during the test.
-
-This document records the testing workflow so it can be reused and refined without relying on memory or chat history.
-
-## First connection-validation receipt
-
-Keep automatic indexing disabled. `/probe/folders`, `/scan/status`, and
-`/scan/candidates` all require the bearer header. Only `/health` is public;
-credential presence does not prove authentication.
-
-Record commit, UTC timestamp, health status/JSON, missing-token and wrong-token
-401 results for all protected routes, and authenticated folder-probe status
-and folder count. Keep folder names private; exclude credentials, tokens,
-and message metadata. Folder-only testing does not verify scanning,
-classification accuracy, or state preservation during a full scan.
+The branch contains no tracked Railway manifest, Dockerfile, Procfile or deployment
+workflow for this adapter. The previous README described service
+`pixie-icloud-mail` and its credential/startup variables, but does not establish its
+actual current configuration or dependents. No Railway configuration was changed,
+no public endpoint contacted and no migration attempted. Keep the existing service
+and source branch unchanged. This local repair requires its own review before any
+hosted release; default loopback binding and refusal of legacy automatic scans
+mean it must not be deployed unchanged into an assumed Railway setup.
