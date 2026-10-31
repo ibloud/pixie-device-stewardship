@@ -6,3 +6,10 @@ node_modules/
 *.key
 pixie-mail-*.json
 pixie-mail-candidates.json
+
+# Private local mail state (default data directory is outside the checkout).
+/adapters/icloud-mail/.local-data/
+/adapters/icloud-mail/.mail-data/
+/adapters/icloud-mail/metadata.json
+/adapters/icloud-mail/scan.lock
+/adapters/icloud-mail/.metadata-*

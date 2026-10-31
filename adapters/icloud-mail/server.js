@@ -1,235 +1,53 @@
-import http from "node:http";
-import { readFile, writeFile } from "node:fs/promises";
-import { ImapFlow } from "imapflow";
-
-const PORT = Number(process.env.PORT || 3000);
-const email = process.env.ICLOUD_EMAIL || "";
-const password = process.env.ICLOUD_APP_PASSWORD || "";
-const indexOnStart = process.env.PIXIE_MAIL_INDEX_ON_START === "true";
-const readToken = process.env.PIXIE_MAIL_READ_TOKEN || "";
-
-let indexState = {
-  enabled: indexOnStart,
-  state: indexOnStart ? "pending" : "disabled",
-  startedAt: null,
-  finishedAt: null,
-  folders: 0,
-  foldersCompleted: 0,
-  messages: 0,
-  candidates: 0,
-  errors: []
-};
-
-function client() {
-  if (!email || !password) throw new Error("iCloud credentials not configured");
-  return new ImapFlow({
-    host: "imap.mail.me.com",
-    port: 993,
-    secure: true,
-    auth: { user: email, pass: password },
-    logger: false
-  });
-}
-
-function addresses(items = []) {
-  return items.map(x => ({ name: x?.name || null, address: x?.address || null }));
-}
-
-function looksActionable(subject = "") {
-  return /(action required|deadline|due|follow.?up|request|case|ticket|notice|hearing|appeal|complaint|invoice|payment|renewal|verification|recertification|application|grant|proposal|contract|records? request|status update|response required)/i.test(subject);
-}
-
-async function folders() {
-  const c = client();
-  try {
-    await c.connect();
-    const rows = await c.list();
-    return rows.map(x => ({ path: x.path, specialUse: x.specialUse || null }));
-  } finally {
-    await c.logout().catch(() => {});
-  }
-}
-
-async function buildMetadataIndex() {
-  indexState = {
-    enabled: true,
-    state: "running",
-    startedAt: new Date().toISOString(),
-    finishedAt: null,
-    folders: 0,
-    foldersCompleted: 0,
-    messages: 0,
-    candidates: 0,
-    errors: []
+import http from 'node:http';
+import https from 'node:https';
+import {readFile} from 'node:fs/promises';
+import {timingSafeEqual} from 'node:crypto';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {configuration,createScanner,MailError} from './scanner.js';
+export const PIXIE_MAIL_MODE='read-only';
+export function createServer({scanner=createScanner(),token=process.env.PIXIE_MAIL_READ_TOKEN||'',tls}={}){
+  const authorized=req=>{
+    if(token.length<32)return false;
+    const expected=Buffer.from('Bearer '+token),actual=Buffer.from(req.headers.authorization||'');
+    return expected.length===actual.length&&timingSafeEqual(expected,actual);
   };
-
-  const candidates = [];
-  const writeSnapshot = async partial => {
-    await writeFile("/tmp/pixie-mail-candidates.json", JSON.stringify({
-      generatedAt: new Date().toISOString(),
-      mode: "read-only-metadata",
-      partial,
-      note: "Subjects and addressing metadata only. No message bodies or attachments.",
-      errors: indexState.errors,
-      candidates
-    }, null, 2));
+  let server;
+  const handler=async(req,res)=>{
+    const json=(status,value)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer'});res.end(JSON.stringify(value));};
+    try{
+      const url=new URL(req.url,'http://localhost');
+      // Literal loopback hosts prevent DNS rebinding. External transport must be native TLS.
+      if(!req.socket.encrypted&&(!['127.0.0.1','::1'].includes(server.address()?.address)||!['127.0.0.1','::1','::ffff:127.0.0.1'].includes(req.socket.remoteAddress))){json(403,{error:'external_binding_requires_native_tls'});return;}
+      if(!req.socket.encrypted&&!/^(127\.0\.0\.1|localhost|\[::1\])(?::\d+)?$/.test(req.headers.host||'')){json(403,{error:'invalid_local_host'});return;}
+      if(req.headers.origin||req.headers['sec-fetch-site']==='cross-site'){json(403,{error:'browser_cross_origin_not_supported'});return;}
+      if(req.method!=='GET'){res.setHeader('Allow','GET');json(405,{error:'method_not_allowed'});return;}
+      if(!authorized(req)){json(401,{error:'unauthorized'});return;}
+      if(url.pathname==='/health'){json(200,{ok:true,service:'PIXIE iCloud Mail Adapter',mode:PIXIE_MAIL_MODE,automaticScanning:false});return;}
+      if(url.pathname==='/probe/folders'){json(200,{folders:await scanner.folders()});return;}
+      if(url.pathname==='/scan/status'){json(200,await scanner.status());return;}
+      if(url.pathname==='/scan/candidates'){json(200,await scanner.page(Number(url.searchParams.get('offset')||0),Number(url.searchParams.get('limit')||50)));return;}
+      json(404,{error:'not_found'});
+    }catch(e){json(e instanceof MailError?e.status:503,{error:e instanceof MailError?e.code:'adapter_operation_failed'});}
   };
-
-  let folderRows = [];
-  const listingClient = client();
-
-  try {
-    await listingClient.connect();
-    folderRows = await listingClient.list();
-    indexState.folders = folderRows.length;
-  } catch (error) {
-    indexState.errors.push({ stage: "list-folders", error: error.message });
-    indexState.state = "failed";
-    indexState.finishedAt = new Date().toISOString();
-    await writeSnapshot(true).catch(() => {});
-    return;
-  } finally {
-    await listingClient.logout().catch(() => {});
-  }
-
-  for (const folder of folderRows) {
-    const c = client();
-    try {
-      await c.connect();
-      const mailbox = await c.mailboxOpen(folder.path, { readOnly: true });
-
-      if ((mailbox.exists || 0) > 0) {
-        for await (const msg of c.fetch("1:*", { uid: true, envelope: true, internalDate: true })) {
-          indexState.messages += 1;
-          const subject = msg.envelope?.subject || "";
-          if (!looksActionable(subject)) continue;
-
-          candidates.push({
-            folder: folder.path,
-            uid: msg.uid,
-            date: msg.envelope?.date || msg.internalDate || null,
-            subject,
-            from: addresses(msg.envelope?.from),
-            to: addresses(msg.envelope?.to)
-          });
-          indexState.candidates += 1;
-        }
-      }
-
-      indexState.foldersCompleted += 1;
-    } catch (error) {
-      indexState.errors.push({ folder: folder.path, error: error.message });
-    } finally {
-      await c.logout().catch(() => {});
-      await writeSnapshot(true).catch(() => {});
-    }
-  }
-
-  indexState.state = indexState.errors.length ? "complete_with_errors" : "complete";
-  indexState.finishedAt = new Date().toISOString();
-  await writeSnapshot(false).catch(error => {
-    indexState.errors.push({ stage: "write-final-index", error: error.message });
-    indexState.state = "complete_with_errors";
-  });
+  server=tls?https.createServer(tls,handler):http.createServer(handler);return server;
 }
-
-function authorized(req) {
-  const header = req.headers.authorization || "";
-  return Boolean(readToken) && header === `Bearer ${readToken}`;
+export async function start(env=process.env){
+  const host=env.HOST||'127.0.0.1',token=env.PIXIE_MAIL_READ_TOKEN||'';
+  if(token.length<32)throw new MailError('read_token_minimum_32_characters');
+  if(env.PIXIE_MAIL_INDEX_ON_START==='true')throw new MailError('automatic_scanning_disabled_use_manual_scan');
+  let tls;
+  if(!['127.0.0.1','::1','localhost'].includes(host)){
+    if(!env.PIXIE_MAIL_TLS_CERT||!env.PIXIE_MAIL_TLS_KEY)throw new MailError('external_binding_requires_native_tls');
+    tls={cert:await readFile(env.PIXIE_MAIL_TLS_CERT),key:await readFile(env.PIXIE_MAIL_TLS_KEY),minVersion:'TLSv1.2'};
+  }
+  const server=createServer({scanner:createScanner(configuration(env)),token,tls});
+  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(Number(env.PORT||3000),host,resolve);});
+  return server;
 }
-
-async function candidatePage(offset, limit) {
-  const raw = await readFile("/tmp/pixie-mail-candidates.json", "utf8");
-  const index = JSON.parse(raw);
-  const candidates = Array.isArray(index.candidates) ? index.candidates : [];
-  const start = Math.max(0, offset);
-  const size = Math.min(Math.max(1, limit), 100);
-
-  return {
-    generatedAt: index.generatedAt || null,
-    mode: index.mode || "read-only-metadata",
-    partial: Boolean(index.partial),
-    total: candidates.length,
-    offset: start,
-    limit: size,
-    candidates: candidates.slice(start, start + size)
-  };
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+  start().then(server=>{
+    console.log('PIXIE mail adapter started; automatic scanning disabled.');
+    for(const signal of ['SIGINT','SIGTERM'])process.once(signal,()=>server.close(()=>process.exit(0)));
+  }).catch(e=>{console.error(e instanceof MailError?e.code:'local_server_start_failed');process.exitCode=1;});
 }
-
-const server = http.createServer(async (req, res) => {
-  res.setHeader("content-type", "application/json");
-  res.setHeader("cache-control", "no-store");
-  const pathname = new URL(req.url || "/", "http://localhost").pathname;
-
-  if (pathname === "/health") {
-    res.end(JSON.stringify({
-      ok: true,
-      service: "PIXIE iCloud Mail Adapter",
-      mode: "read-only",
-      credentialsConfigured: Boolean(email && password),
-      mailboxIndex: { enabled: indexState.enabled, state: indexState.state }
-    }));
-    return;
-  }
-
-  if (["/probe/folders", "/scan/status", "/scan/candidates"].includes(pathname)) {
-    if (req.method !== "GET") {
-      res.statusCode = 405;
-      res.setHeader("allow", "GET");
-      res.end(JSON.stringify({ error: "method_not_allowed" }));
-      return;
-    }
-    if (!authorized(req)) {
-      res.statusCode = 401;
-      res.end(JSON.stringify({ error: "unauthorized" }));
-      return;
-    }
-  }
-
-  if (pathname === "/probe/folders") {
-    try {
-      res.end(JSON.stringify({ folders: await folders() }));
-    } catch (error) {
-      res.statusCode = 503;
-      res.end(JSON.stringify({ error: "folder_probe_failed" }));
-    }
-    return;
-  }
-
-  if (pathname === "/scan/status") {
-    res.end(JSON.stringify(indexState));
-    return;
-  }
-
-  if (pathname === "/scan/candidates") {
-    if (!authorized(req)) {
-      res.statusCode = 401;
-      res.end(JSON.stringify({ error: "unauthorized" }));
-      return;
-    }
-
-    try {
-      const requestUrl = new URL(req.url || "/", "http://localhost");
-      const offset = Number(requestUrl.searchParams.get("offset") || 0);
-      const limit = Number(requestUrl.searchParams.get("limit") || 50);
-      res.setHeader("cache-control", "no-store");
-      res.end(JSON.stringify(await candidatePage(offset, limit)));
-    } catch (error) {
-      res.statusCode = 503;
-      res.end(JSON.stringify({ error: "candidate_index_unavailable" }));
-    }
-    return;
-  }
-
-  res.statusCode = 404;
-  res.end(JSON.stringify({ error: "not_found" }));
-});
-
-server.listen(PORT, "0.0.0.0", () => {
-  console.log("PIXIE iCloud Mail Adapter listening", PORT);
-  if (indexOnStart) buildMetadataIndex().catch(() => {
-    indexState.state = "failed";
-    indexState.finishedAt = new Date().toISOString();
-    indexState.errors.push({ stage: "startup", error: "metadata_index_failed" });
-  });
-});
