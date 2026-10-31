@@ -197,3 +197,50 @@ no public endpoint contacted and no migration attempted. Keep the existing servi
 and source branch unchanged. This local repair requires its own review before any
 hosted release; default loopback binding and refusal of legacy automatic scans
 mean it must not be deployed unchanged into an assumed Railway setup.
+
+## Inbox learning build — reviewed 31 October 2026
+
+This is part of Loptr Lab's training program: learn to connect an outside
+information source to an existing learner task while preserving source context,
+privacy and human judgment. The existing adapter is the implementation exercise;
+Training owns onboarding, and the existing Companion owns future task interaction.
+Do not create another inbox service, project directory or learner account system.
+
+### Verified boundary
+
+- PR #35 records 16 passing synthetic tests at
+  `71579e8e371332e214a1147aad7e2b449ecf3acc`; these were not rerun for this documentation update.
+- Manual bounded, metadata-only scanning, deduplication, authenticated local
+  retrieval and safe failure handling are implemented on this review branch.
+- Live iCloud access and unchanged real mailbox state remain unverified.
+- No message-body review, reply generation, approve/edit flow, scheduler, Gmail
+  adapter or active Companion integration is established by this build.
+- Railway inspection on 31 October found the existing `pixie-icloud-mail` service's
+  latest deployment FAILED (26 September). A domain and configured variable names
+  do not prove a working mailbox connection. Two environment-wide staged changes
+  were present; none were applied. Values and mailbox data were not retrieved.
+- The local repair must not be deployed unchanged: loopback binding/native-TLS
+  requirements and authenticated health differ from the existing hosted setup.
+  No persistent volume is attached to the inspected mail service.
+
+### Existing-work contribution milestones
+
+Choose one milestone and agree scope in existing PR #35 before implementation.
+No contributor is assigned by this list. Open contributions are voluntary/unpaid;
+follow repository instructions and agree time, public output, credit and exit terms.
+
+| Milestone / role | Work in the existing implementation | Observable completion |
+| --- | --- | --- |
+| 1. Hosted candidate / maintainer + backend contributor | Reconcile original PR #13, this repair and the actual Railway configuration. Inspect existing staged changes; do not accept unrelated changes. Adapt transport, health and private storage deliberately. Keep scanning manual/off by default. | Pinned candidate passes synthetic tests, authenticated routes reject missing/wrong tokens, health works through Railway without private data, and restart/storage behavior is demonstrated. Record SHA, deployment and rollback steps. No live mail required. |
+| 2. Private connection / account owner + maintainer | Privately configure the existing host; owner chooses one low-stakes folder and a short date window. Start with folder listing, then the bounded read-only scan. | Real authentication, bounded results, repeat-scan deduplication and unchanged mailbox flags checked. Public receipt contains only date, source SHA, counts and outcomes. |
+| 3. Selected correspondence to task / Companion contributor | Continue the existing Companion interface. With separate consent, expose only the selected item's needed content, retain its source reference and let the learner confirm the existing task destination. Treat email as untrusted content, never tool instructions. | Synthetic cases show a relevant outside resource attached to the selected task; wrong-account access and unapproved import are rejected. No whole-index sharing or public mail copies. |
+| 4. Reviewable reply / workflow contributor + owner | Add reply drafting using the selected, consented message context. Provide edit, approve and reject; do not enable sending as part of this milestone. | One real reply-needed item is correctly identified; the owner reviews/edits a grounded draft. Capture only a redacted result, including any false positive. |
+| 5. Recurring check / maintainer + owner | Only after manual review succeeds, add an owner-selected schedule to the same bounded workflow with visible status, disable control, deduplication and failure reporting. | A scheduled run and a failed-run case are observed; disabling prevents later runs. Schedule timezone and actual hosting cost boundary recorded. |
+| 6. Accessible demonstration / independent tester | Check the selected workflow with keyboard and the intended device/assistive technology. Prepare a synthetic or redacted demonstration. | Tester can find the item, understand its proposed task/reply, edit/reject it and see truthful failure/paused state. Untested devices remain labeled. |
+
+The supplied Handshake Inbox Assistant brief requires finding reply-needed mail,
+a reviewed draft and a recurring cycle. This checkpoint does not yet satisfy that
+full workflow. It can be offered honestly as an unfinished learning prototype for
+review if the submission interface accepts it; acceptance/badges are not guaranteed.
+See [prepared submission fields](./HANDSHAKE-SUBMISSION.md). Rubrics Academy helps
+test these outcomes; more coursework is not a prerequisite to finishing the build.
