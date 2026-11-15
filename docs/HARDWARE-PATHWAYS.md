@@ -4,6 +4,25 @@ Checked October 4, 2026. Guidance, not a compatibility certification or installe
 
 This is the shared hardware reference for Device Stewardship, Creator OS, and Holdings. Their implementations remain separate. A working browser route is the first option; replacing an operating system is never a prerequisite to try PIXIE.
 
+## Equipment reuse is the goal
+
+Owner-confirmed direction, 15 November 2026: Device Stewardship evaluates legacy
+equipment for continued useful service. Prefer safe repair, reuse, refurbishment
+and supported alternative systems over unnecessary purchases or disposal. Age
+alone is not a purchase recommendation. Preserve security updates, repairability,
+accessibility, privacy and recoverable backups; a reused device still has to meet
+the task's actual requirements. Unsupported modifications are not a privacy fix.
+
+Creators do not need to own their producer's equipment. iPad/iPhone GarageBand
+and a producer's Logic-on-Mac workflow are distinct roles. Android/REAPER has no
+verified configuration in the reviewed source; confirm its intended device/host
+arrangement before recommending a native app, remote control or alternative OS.
+Use the existing Android plan and tables below; no new OS repository or installer.
+
+A browser demo or CI pass verifies only that recorded demo behavior, not a device,
+DAW, connector, maintained ROM or full alternate-system compatibility. Existing
+privacy issues #28–#30 retain the integration, retention and device-test gates.
+
 ## Start with the task
 
 Record the exact model (not a serial number), processor, OS/browser version, available memory/storage, battery condition, input/accessibility needs, and required peripherals. For music, distinguish audio recording from MIDI control and check adapter power and driver requirements. For games, test the actual controller and screen reader. Age alone does not establish obsolescence.
