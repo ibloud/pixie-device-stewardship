@@ -143,6 +143,5 @@ Feedback is previewed in the tab before an optional download or manual GitHub is
 Device Stewardship evaluates legacy hardware for continued use: repair, reuse,
 refurbishment and supported alternative systems before unnecessary purchases or
 disposal. The existing [hardware pathways](docs/HARDWARE-PATHWAYS.md) own exact
-platform/status distinctions, including the unresolved Android/REAPER route.
-The Android launcher/ROM plan is not a shipped native implementation or verified
-privacy claim. Existing privacy, accessibility, security and recovery gates remain.
+platform/status distinctions. Existing privacy, accessibility, security and
+recovery gates remain.

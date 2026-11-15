@@ -14,10 +14,8 @@ accessibility, privacy and recoverable backups; a reused device still has to mee
 the task's actual requirements. Unsupported modifications are not a privacy fix.
 
 Creators do not need to own their producer's equipment. iPad/iPhone GarageBand
-and a producer's Logic-on-Mac workflow are distinct roles. Android/REAPER has no
-verified configuration in the reviewed source; confirm its intended device/host
-arrangement before recommending a native app, remote control or alternative OS.
-Use the existing Android plan and tables below; no new OS repository or installer.
+and a producer's Logic-on-Mac workflow are distinct roles. Reuse the existing
+platform tables below; this alignment creates no new operating-system work.
 
 A browser demo or CI pass verifies only that recorded demo behavior, not a device,
 DAW, connector, maintained ROM or full alternate-system compatibility. Existing
