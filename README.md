@@ -137,3 +137,11 @@ The [public example](https://ibloud.github.io/pixie-device-stewardship/) offers 
 - Local planning model checks: `node --test tests/demo-model.test.js`
 
 Feedback is previewed in the tab before an optional download or manual GitHub issue. No automatic submission, analytics, signup or interest enrollment. iPad Safari/VoiceOver, export-to-Files and instrument tests remain required before device support is claimed.
+
+## Equipment-reuse direction — review 15 November 2026
+
+Device Stewardship evaluates legacy hardware for continued use: repair, reuse,
+refurbishment and supported alternative systems before unnecessary purchases or
+disposal. The existing [hardware pathways](docs/HARDWARE-PATHWAYS.md) own exact
+platform/status distinctions. Existing privacy, accessibility, security and
+recovery gates remain.
