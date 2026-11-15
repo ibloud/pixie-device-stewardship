@@ -88,3 +88,33 @@ See [the developer-review pilot analysis](REFURBISHED-PHONE-PILOT.md) for preins
 ### First hardware gate
 
 Do not purchase or flash a device yet. First resolve the integration and retention acceptance criteria in #28 and #29 using synthetic fixtures and mock services. After a runnable launcher APK exists, test permission refusal, offline behavior, keyboard navigation and TalkBack on an Android emulator, then on a supported physical device. Record device model, OS/build and test artifacts with each result. Never claim verified privacy, malware removal, or accessibility certification from a documentation-only check.
+
+## iFixit repair education and institutional research — 15 November 2026
+
+Extend the existing iFixit right-to-repair reference above with
+[Device Safety](https://www.ifixit.com/Info/Device_Safety),
+[Electronics Skills](https://www.ifixit.com/Device/Electronics_Skills) and
+[component diagrams](https://www.ifixit.com/Guide/Identifying+Major+Electronic+Components/27244).
+A beginner can read diagrams and document an external model without opening or
+powering the instrument. Match any guide to manufacturer/model/revision; no
+synthesizer compatibility, firmware success or hardware recovery was tested.
+
+Mains-powered circuitry, capacitors, CRTs, damaged batteries and unknown faults
+require qualified professional assessment. Unplugging is not proof that stored
+electrical energy is gone. Minors also need appropriate adult supervision; a
+nontechnical adult is not a substitute for a qualified technician. No hazardous
+repair, bypass, soldering or firmware procedure is supplied in this example.
+
+[Training’s existing maker route](https://loptr-lab.github.io/training/tracks/maker-game-systems.html#repair-literacy)
+contains the documentation-only activity.
+[Made-Sick](https://made-sick.org/directory.html#resource-ifixit-repair-learning)
+owns the dated external resource descriptions and community/EDU/partnership
+pointers. Reference reading is free; parts, tools and supervision can cost money.
+Community guidance does not certify a mentor, confirm a local event or enrol a
+minor. EDU’s institutional terms do not establish this studio’s eligibility.
+
+The prospective studio pilot is recorded under the
+[existing consolidation coordination record](https://github.com/ibloud/ibloud.github.io/blob/main/docs/PIXIE_CONSOLIDATION.md#ifixit--prospective-studio-pilot-research-15-november-2026).
+Its outreach gate remains CLOSED. No iFixit endorsement, grant, sponsorship or
+affiliation with Loptr Lab is established. Sources were read November 15, 2026;
+local events, physical device work and institutional acceptance remain unverified.
