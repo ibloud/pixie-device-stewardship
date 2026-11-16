@@ -1,5 +1,14 @@
 # PIXIE Device Stewardship
 
+## Repository instructions and contribution entry
+
+Start with [AGENTS.md](AGENTS.md), explicitly read the
+[shared ecosystem instructions](https://github.com/ibloud/ibloud.github.io/blob/docs/agent-design-continuity/docs/ECOSYSTEM_INSTRUCTIONS.md), then follow the local sources and existing
+issues/PRs identified there. The shared update is under review in portfolio PR #59;
+a link does not load instructions automatically. Project-specific canon, privacy,
+security, licensing and release gates remain in this repository.
+
+
 **Developers and technical reviewers:** [Start with the PIXIE developer testing guide](docs/DEVELOPER-TESTING.md) for reproducible software checks, current limitations, AT Protocol references, open issues and safe contribution boundaries. No personal data or hardware modification is required for the initial test phase.
 
 
