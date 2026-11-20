@@ -164,3 +164,16 @@ footer strong { max-width: 22ch; }
 .play-forward-prompt li { margin: 8px 0; color: var(--muted); }
 .play-forward-card summary { min-height: 44px; }
 @media(max-width:700px) { .play-forward-content { grid-template-columns: 1fr; } .play-forward-feature { padding: 22px 18px; } }
+
+/* Interactive PLAY IT FORWARD adventure builder */
+.adventure-builder { display: grid; gap: 14px; margin-top: 16px; }
+.adventure-builder label { display: grid; gap: 6px; font-weight: 650; font-size: .95rem; }
+.adventure-builder input,.adventure-builder textarea,.adventure-builder select { width: 100%; min-height: 44px; border: 1px solid var(--line); border-radius: 5px; padding: 10px 12px; font: inherit; color: var(--ink); background: var(--surface); }
+.adventure-builder textarea { resize: vertical; }
+.adventure-builder input:focus-visible,.adventure-builder textarea:focus-visible,.adventure-builder select:focus-visible { outline: 3px solid var(--petrol); outline-offset: 3px; }
+.adventure-builder-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.adventure-builder-actions button { min-height: 44px; }
+.generated-label { margin-top: 6px; }
+.generated-prompt { background: var(--surface) !important; font-size: .9rem !important; line-height: 1.5; }
+.builder-note { margin: 0; color: var(--muted); font-size: .875rem; }
+@media(max-width:700px) { .adventure-builder-actions { flex-direction: column; align-items: stretch; } }
