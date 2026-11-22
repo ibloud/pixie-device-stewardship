@@ -1,0 +1,8 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+pixie-mail-*.json
+pixie-mail-candidates.json
