@@ -177,3 +177,15 @@ footer strong { max-width: 22ch; }
 .generated-prompt { background: var(--surface) !important; font-size: .9rem !important; line-height: 1.5; }
 .builder-note { margin: 0; color: var(--muted); font-size: .875rem; }
 @media(max-width:700px) { .adventure-builder-actions { flex-direction: column; align-items: stretch; } }
+
+
+/* Complete site directory and policy footer */
+.guide-footer { margin-top: 44px; padding: 32px 0 20px; border-top: 2px solid var(--line); color: var(--muted); }
+.guide-footer-directory { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.guide-footer-directory h2 { margin: 0 0 10px; color: var(--ink); font-size: 1.1rem; }
+.guide-footer-directory ul { margin: 0; padding-left: 20px; }
+.guide-footer-directory li { margin: 6px 0; }
+.guide-footer p { margin: 20px 0; font-size: .9rem; }
+.guide-footer strong { color: var(--ink); }
+.guide-footer-bottom { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--line); }
+@media(max-width:700px) { .guide-footer-directory { grid-template-columns: 1fr; gap: 18px; } .guide-footer-bottom { flex-direction: column; gap: 8px; } }
