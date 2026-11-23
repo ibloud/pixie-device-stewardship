@@ -4,29 +4,29 @@
   color: var(--ink); background: var(--paper); font-size: 112.5%; font-synthesis: none; line-height: 1.6;
   color-scheme: light;
   /* Loptr Lab shared portfolio foundation: charcoal, violet, lilac, lime, rose. */
-  --paper: #0c0816; --ink: #f8f1ff; --petrol: #d8ff3e; --ochre: #ff6b8b;
-  --plum: #cbbdda; --muted: #cbbdda; --line: #47345e; --surface: #171027; --control-ink: #11120b;
-  --site-focus: #5de8ff;
+  --paper: #171323; --ink: #fff3f7; --petrol: #65c5ce; --ochre: #e889b4;
+  --plum: #d9cbea; --muted: #c9bfd5; --line: #51435f; --surface: #282039; --control-ink: #171323;
+  --site-focus: #f2ad91;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --paper: #d5cedb; --surface: #e4deea; --ink: #211c27;
-  --muted: #514757; --petrol: #613e7d; --ochre: #d92f64;
-  --plum: #514757; --line: #a79aad; --control-ink: #fff;
-  --site-focus: #613e7d;
+  --paper: #f8e8ef; --surface: #fff5f8; --ink: #30223a;
+  --muted: #594b61; --petrol: #176b78; --ochre: #b64278;
+  --plum: #594b61; --line: #c7adbf; --control-ink: #fff;
+  --site-focus: #744a9a;
 }
 /* System is the default; explicit choices override it without changing page CSS. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #151c1b; --surface: #202927; --ink: #eee8de;
-  --muted: #c7c4ba; --petrol: #a4d5c6; --line: #748780; --control-ink: #142521;
+  --paper: #171323; --surface: #282039; --ink: #fff3f7;
+  --muted: #c9bfd5; --petrol: #65c5ce; --ochre: #e889b4; --plum: #d9cbea; --line: #51435f; --control-ink: #171323; --site-focus: #f2ad91;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --paper: #0c0816; --surface: #171027; --ink: #f8f1ff;
-    --muted: #cbbdda; --petrol: #d8ff3e; --line: #47345e; --control-ink: #11120b;
+    --paper: #171323; --surface: #282039; --ink: #fff3f7;
+    --muted: #c9bfd5; --petrol: #65c5ce; --ochre: #e889b4; --plum: #d9cbea; --line: #51435f; --control-ink: #171323; --site-focus: #f2ad91;
   }
 }
 .theme-control { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 1rem; color: var(--ink); }
@@ -192,4 +192,4 @@ footer strong { max-width: 22ch; }
 
 
 /* Shared Field Notes publication components */
-.field-notes-page{max-width:1200px;margin:0 auto;padding:0 40px}.field-notes-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}.field-notes-brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}.field-notes-brand strong{display:block;font-size:1.4375rem;letter-spacing:.06em}.field-notes-brand small{display:block;color:var(--muted);font-size:.875rem}.field-notes-nav{display:none}.breadcrumbs{display:none !important}.breadcrumbs ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}.breadcrumbs li+li:before{content:'›';padding-right:8px;color:var(--muted)}.breadcrumbs a{color:var(--petrol)}.field-note-content{max-width:900px;margin:0 auto;padding:28px 0 72px}.field-note-content .eyebrow{margin:0 0 16px}.field-note-content h1{margin:0 0 24px}.field-note-content .meta{color:var(--muted);font-size:.95rem}.field-note-content .lead{font-size:1.25rem;line-height:1.6}.field-note-content p,.field-note-content li{max-width:72ch}.field-note-content figure{margin:2em 0}.field-note-content figure img{display:block;width:100%;height:auto;border-radius:8px}.field-note-content figcaption{font-size:.875rem;color:var(--muted);margin-top:12px}.field-note-content h2{margin:2em 0 16px}.field-note-content h3{margin:1.7em 0 12px}.field-notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:28px 0}.field-note-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px}.field-note-card h2{font-size:1.4rem;margin:8px 0 12px}.field-note-footer{border-top:1px solid var(--line);padding:24px 0 44px;color:var(--muted)}.skip-link{position:absolute;left:20px;top:-100px;padding:14px;background:var(--surface);z-index:10}.skip-link:focus{top:10px}@media(max-width:700px){.page,.field-notes-page{padding:0 20px}.field-note-content{padding-top:20px}.field-notes-header{align-items:flex-start;flex-direction:column}}
+.field-notes-page{max-width:1200px;margin:0 auto;padding:0 40px}.field-notes-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}.field-notes-brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}.field-notes-brand strong{display:block;font-size:1.4375rem;letter-spacing:.06em}.field-notes-brand small{display:block;color:var(--muted);font-size:.875rem}.field-notes-nav{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}.field-notes-nav a{display:inline-flex;align-items:center;min-height:44px;font-weight:650}.breadcrumbs{display:none !important}.breadcrumbs ul{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}.breadcrumbs li+li:before{content:'›';padding-right:8px;color:var(--muted)}.breadcrumbs a{color:var(--petrol)}.field-note-content{max-width:900px;margin:0 auto;padding:28px 0 72px}.field-note-content .eyebrow{margin:0 0 16px}.field-note-content h1{margin:0 0 24px}.field-note-content .meta{color:var(--muted);font-size:.95rem}.field-note-content .lead{font-size:1.25rem;line-height:1.6}.field-note-content p,.field-note-content li{max-width:72ch}.field-note-content figure{margin:2em 0}.field-note-content figure img{display:block;width:100%;height:auto;border-radius:8px}.field-note-content figcaption{font-size:.875rem;color:var(--muted);margin-top:12px}.field-note-content h2{margin:2em 0 16px}.field-note-content h3{margin:1.7em 0 12px}.field-notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:28px 0}.field-note-card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px}.field-note-card h2{font-size:1.4rem;margin:8px 0 12px}.field-note-footer{border-top:1px solid var(--line);padding:24px 0 44px;color:var(--muted)}.skip-link{position:absolute;left:20px;top:-100px;padding:14px;background:var(--surface);z-index:10}.skip-link:focus{top:10px}@media(max-width:700px){.page,.field-notes-page{padding:0 20px}.field-note-content{padding-top:20px}.field-notes-header{align-items:flex-start;flex-direction:column}}

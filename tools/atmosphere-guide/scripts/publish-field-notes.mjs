@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, stat } from "node:fs/promises";
+import { copyFile, mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -9,6 +9,12 @@ const sourceCss = path.resolve(here, "../src/guide.css");
 await mkdir(path.dirname(publicCss), { recursive: true });
 await copyFile(sourceCss, publicCss);
 
+const breadcrumbData = {
+  "field-notes/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"]],
+  "field-notes/an-artist-should-be-a-node-not-a-tenant/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["An Artist Should Be a Node, Not a Tenant", "https://atmosphere.loptrlab.com/field-notes/an-artist-should-be-a-node-not-a-tenant/"]],
+  "field-notes/your-infrastructure-is-a-business-decision/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["Your Infrastructure Is a Business Decision", "https://atmosphere.loptrlab.com/field-notes/your-infrastructure-is-a-business-decision/"]],
+};
+
 const required = [
   "field-notes/index.html",
   "field-notes/an-artist-should-be-a-node-not-a-tenant/index.html",
@@ -16,7 +22,12 @@ const required = [
 ];
 for (const rel of required) {
   const file = path.join(client, rel);
-  const html = await readFile(file, "utf8");
+  let html = await readFile(file, "utf8");
+  const crumbs = breadcrumbData[rel];
+  if (!crumbs) throw new Error("Missing SEO breadcrumb definition: " + rel);
+  const schema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbs.map(([name, item], position) => ({ "@type": "ListItem", position: position + 1, name, item })) };
+  html = html.replace("</head>", `<script type="application/ld+json" data-field-notes-breadcrumbs>${JSON.stringify(schema)}</script></head>`);
+  await writeFile(file, html);
   if (!/<title>[^<]+<\/title>/i.test(html) || !/<h1\b/i.test(html)) {
     throw new Error("Field Notes page is missing a title or heading: " + rel);
   }
