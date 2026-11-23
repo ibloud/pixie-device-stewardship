@@ -19,7 +19,7 @@ This is the low-risk route: create a new account on the PDS you control, rather 
 - [ ] Add DNS records exactly as the provider and official PDS instructions require.
 - [ ] Verify DNS propagation and TLS before creating an account.
 - [ ] Run `scripts/pds-preflight.sh` to collect read-only system checks.
-- [ ] Download the official installer with `scripts/prepare-installer.sh`, review it, then follow the official instructions.
+- [ ] Download the pinned official installer with `scripts/prepare-installer.sh`, review its source and checksum, then run it only if you choose using `scripts/run-reviewed-installer.sh` (requires explicit typed confirmation and sudo). The official installer is interactive; read each prompt carefully.
 
 ## Identity and account
 
