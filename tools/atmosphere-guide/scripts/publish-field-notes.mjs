@@ -20,7 +20,7 @@ for (const rel of required) {
   if (!/<title>[^<]+<\/title>/i.test(html) || !/<h1\b/i.test(html)) {
     throw new Error("Field Notes page is missing a title or heading: " + rel);
   }
-  if (!/href=["']\\/assets\\/atmosphere\\.css(?:[?#][^"']*)?["']/i.test(html)) {
+  if (!/href=["']\/assets\/atmosphere\.css(?:[?#][^"']*)?["']/i.test(html)) {
     throw new Error("Field Notes page is not using the shared Atmosphere stylesheet: " + rel);
   }
   const refs = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/g)].map((m) => m[1]);
