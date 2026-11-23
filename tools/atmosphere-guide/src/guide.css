@@ -19,14 +19,16 @@
 /* System is the default; explicit choices override it without changing page CSS. */
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #151c1b; --surface: #202927; --ink: #eee8de;
-  --muted: #c7c4ba; --petrol: #a4d5c6; --line: #748780; --control-ink: #142521;
+  --paper: #0c0816; --surface: #171027; --ink: #f8f1ff;
+  --muted: #cbbdda; --petrol: #d8ff3e; --ochre: #ff6b8b;
+  --plum: #cbbdda; --line: #47345e; --control-ink: #11120b;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --paper: #0c0816; --surface: #171027; --ink: #f8f1ff;
-    --muted: #cbbdda; --petrol: #d8ff3e; --line: #47345e; --control-ink: #11120b;
+    --muted: #cbbdda; --petrol: #d8ff3e; --ochre: #ff6b8b;
+    --plum: #cbbdda; --line: #47345e; --control-ink: #11120b;
   }
 }
 .theme-control { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 1rem; color: var(--ink); }
