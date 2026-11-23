@@ -26,7 +26,6 @@ for (const rel of required) {
   const crumbs = breadcrumbData[rel];
   if (!crumbs) throw new Error("Missing SEO breadcrumb definition: " + rel);
   const schema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbs.map(([name, item], position) => ({ "@type": "ListItem", position: position + 1, name, item })) };
-  html = html.replace(/<script[^>]*data-field-notes-breadcrumbs[^>]*>[\\s\\S]*?<\\/script>/, "");
   html = html.replace("</head>", `<script type="application/ld+json" data-field-notes-breadcrumbs>${JSON.stringify(schema)}</script></head>`);
   await writeFile(file, html);
   if (!/<title>[^<]+<\/title>/i.test(html) || !/<h1\b/i.test(html)) {
