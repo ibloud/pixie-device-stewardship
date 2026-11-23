@@ -75,4 +75,6 @@ The next time someone offers to solve your business problem by taking a percenta
 
 No sponsorship, affiliate relationship, referral commission, or promotional obligation to PDS or hosting providers. This is educational commentary, not financial or legal advice.
 
-**Related:** [Atmosphere field guide](https://atmosphere.loptrlab.com/) · [PDS Independence Kit](https://github.com/ibloud/pixie-device-stewardship/tree/main/tools/atmosphere-guide/pds-kit)
+**Navigation:** [Atmosphere field guide](https://atmosphere.loptrlab.com/) · [Field Notes archive](https://atmosphere.loptrlab.com/field-notes/) · [Field Note 013](https://atmosphere.loptrlab.com/field-notes/an-artist-should-be-a-node-not-a-tenant/)
+
+**Kit source (GitHub):** [PDS Independence Kit](https://github.com/ibloud/pixie-device-stewardship/tree/main/tools/atmosphere-guide/pds-kit)
