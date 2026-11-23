@@ -147,9 +147,9 @@ footer strong { max-width: 22ch; }
 
 /* Featured PLAY IT FORWARD adventure */
 .play-forward-feature { margin: 28px 0 36px; padding: clamp(22px,4vw,40px); border: 1px solid var(--line); border-top: 5px solid var(--ochre); border-radius: 10px; background: var(--surface); }
-.play-forward-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 1.25rem; }
+.play-forward-heading { display: grid; }
 .play-forward-kicker { text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; font-weight: 750; color: var(--petrol); margin-bottom: 12px; }
-.play-forward-content { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(280px,.8fr); gap: 28px; align-items: start; }
+.play-forward-content { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: start; }
 .play-forward-feature h2 { font-size: clamp(2rem,5vw,3.2rem); margin: 0 0 8px; }
 .play-forward-lede { font-size: 1.25rem; font-weight: 700; color: var(--ink) !important; }
 .play-forward-feature p { color: var(--muted); }
@@ -164,7 +164,7 @@ footer strong { max-width: 22ch; }
 .play-forward-prompt ul { padding-left: 22px; }
 .play-forward-prompt li { margin: 8px 0; color: var(--muted); }
 .play-forward-card summary { min-height: 44px; }
-@media(max-width:700px) { .play-forward-content { grid-template-columns: 1fr; } .play-forward-feature { padding: 22px 18px; } }
+@media(max-width:700px) { .play-forward-feature { padding: 22px 18px; } }
 
 /* Interactive PLAY IT FORWARD adventure builder */
 .adventure-builder { display: grid; gap: 14px; margin-top: 16px; }
