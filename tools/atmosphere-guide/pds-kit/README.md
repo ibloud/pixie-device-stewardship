@@ -1,12 +1,12 @@
 # Atmosphere Independence Kit (early reference)
 
-**Goal:** help artists and community publishers create an identity on a PDS they control, then document a safe path to bridge/migrate an existing AT Protocol account from another PDS.
+**Goal:** help artists and community publishers create an identity on a PDS they control, then document a safe path to migrate an existing AT Protocol account from another PDS.
 
 This kit is research and starter documentation, not a one-click migration utility. Account migration changes identity authority and can be destructive. Do not run it on a primary account until the steps are understood, backups are verified, and the process has been rehearsed with a disposable account.
 
 ## Pilot
 
-Daddy's Little Mortis (daddyslittlemortis.com) is the first reference deployment. The domain has intentionally not been used as an Atmosphere custom handle before this project. We will record actual provider choice, DNS, deployment, verification and costs as we test; the kit does not claim a successful production migration yet.
+Daddy's Little Mortis (daddyslittlemortis.com) is the planned reference deployment. We will record actual provider choice, DNS, deployment, verification and costs as we test; the kit does not claim a successful production migration yet.
 
 ## Principles
 

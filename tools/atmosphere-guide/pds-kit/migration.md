@@ -1,6 +1,6 @@
-# Bridge/migrate from another PDS
+# Move an existing identity to another PDS
 
-**Warning: account migration is identity-sensitive and can be destructive.** The official AT Protocol documentation warns that migration procedures and mechanisms evolve. Do not migrate a primary account as a first test. Do not deactivate or delete the source account before the migration is complete and verified.
+**Warning: account migration is identity-sensitive and can be destructive.** The official AT Protocol documentation warns that migration procedures and mechanisms evolve. Do not migrate a primary account as a first test. Keep the source account active during transfer. Activate the destination after updating the identity, then deactivate the source as part of finalization. Deletion is a separate operation.
 
 ## Preflight safety gate
 
@@ -20,8 +20,8 @@
 The official guide describes the broad stages:
 
 1. Create the destination account while proving control of the DID.
-2. Transfer/import the repository (CAR) and blobs; transfer app preferences where supported.
-3. Update the DID document/PLC operation to point to the destination PDS and its signing credentials.
+2. Import the repository CAR and wait for indexing to finish. Then transfer the media blobs and check the destination for missing blobs. Copy supported private app preferences separately.
+3. Keep the existing DID. Update its PDS endpoint and signing key using the procedure for its DID method. For a provider-managed did:plc, the old PDS signs the authorized PLC operation and the new PDS submits it.
 4. Finalize account status: activate on destination and deactivate on source.
 5. Verify repository revision, records, media, handle resolution, app login and network visibility.
 6. Keep source backups and recovery access until verification and the documented recovery window are complete.
