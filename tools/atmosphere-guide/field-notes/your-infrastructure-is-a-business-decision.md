@@ -53,6 +53,18 @@ Independence without competence can become another form of vulnerability. The an
 
 Sometimes the right decision is to pay a provider. Sometimes the right decision is to build your own infrastructure. Sometimes the right decision is to share infrastructure with a community whose interests are aligned with yours. What matters is that the decision is yours—and that you understand the consequences.
 
+## What Loptr Lab could sell
+
+An independent artist could publish a release announcement and cover art from a studio-controlled AT Protocol identity, linking listeners to a player or download on the artist’s domain. Serve the full album, film or game build from storage sized for delivery. Keep unreleased masters private. The open-source software license and the permissions for each creative work are separate decisions.
+
+Estimate delivery before choosing a host. A 100 MB release downloaded 1,000 times transfers about 100 GB before previews or retries. Price the delivery service against that traffic. As a November 2026 reference, DigitalOcean lists a $6/month VPS with one vCPU, 1 GiB RAM, 25 GiB SSD and 1,000 GiB transfer. That allowance applies to the VPS. Add any separate media storage and delivery charges, backups, domain renewal, taxes and operator time. Compare that total with the current hosting bill and hours before switching.
+
+The kit stays available for self-installation. A creator who can maintain it can run it under its license. A client can hire Loptr Lab to configure DNS and the PDS, install the software, verify a test release and backup restore, or train their team. The client controls the domain, hosting account and credentials and receives the configuration and recovery instructions. Ongoing maintenance is a separately scoped service.
+
+For an illustrative installation, a $350 fee less five hours at an assumed $50/hour and $25 in direct expenses leaves $75 before overhead and taxes. At those assumptions, one extra hour of support leaves $25. Include discovery, documentation and handoff in the estimate. These figures illustrate the calculation and are neither published rates nor a sales forecast.
+
+[VPS pricing](https://www.digitalocean.com/pricing/droplets) · [AT Protocol media blobs](https://atproto.com/specs/blob)
+
 ## The economics of creative freedom
 
 The greatest value of independence may not be the money saved. It may be the decisions you are no longer required to make according to someone else's incentives.
