@@ -39,7 +39,8 @@ Read [migration.md](migration.md) and the official [Account Migration guide](htt
 - `deployment.md` — new-account deployment and validation.
 - `migration.md` — migration stages, safety gates and rollback boundary.
 - `scripts/pds-preflight.sh` — read-only server checks.
-- `scripts/prepare-installer.sh` — download the official installer for human review; does not execute it.
+- `scripts/prepare-installer.sh` — download the official installer from a pinned commit for human review; does not execute it.
+- `scripts/run-reviewed-installer.sh` — run a reviewed installer only after typing an explicit confirmation; uses sudo and changes the server.
 
 ## Status
 
