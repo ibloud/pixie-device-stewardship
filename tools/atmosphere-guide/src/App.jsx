@@ -140,6 +140,7 @@ Build a welcoming, achievable plan connecting the artist's music to real experie
  <p className="eyebrow">Loptr Lab field note 013 · November 23, 2026</p>
  <h2 id="field-note-013-title">An Artist Should Be a Node, Not a Tenant</h2>
  <p><strong>Independent distribution, interoperability, and the infrastructure behind creative ownership.</strong></p>
+ <figure><img src="assets/artist-node-architecture.svg" alt="Artist Node diagram connecting identity, distribution, storage, and external connections around an artist-controlled home" style={{width:"100%",height:"auto",borderRadius:"12px"}}/><figcaption>Own your home. Connect by choice.</figcaption></figure>
  <p>An artist should be able to operate their own digital home—and connect to other systems without making those systems permanent dependencies.</p>
  <p>That is the question behind our exploration of self-hosted music distribution, the AT Protocol, Personal Data Servers (PDS), and services such as <a href="https://mirlo.space">Mirlo</a>.</p>
  <p>We are not proposing that every musician become a systems administrator. We are asking whether the infrastructure can be made modular enough that artists own their identity, catalog, media, storefront, and relationships while choosing which outside services help them reach listeners.</p>
