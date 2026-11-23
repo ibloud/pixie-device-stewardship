@@ -67,12 +67,12 @@ We are especially interested in the realities behind the upcoming Bandcamp Frida
 
 ---
 
-### Breadcrumbs
+### Navigation and source
 
 - [Atmosphere field guide](https://atmosphere.loptrlab.com/)
-- [PDS Independence Kit](https://github.com/ibloud/pixie-device-stewardship/tree/main/tools/atmosphere-guide/pds-kit)
-- [Mirlo](https://mirlo.space)
-- [Mirlo on Bluesky](https://bsky.app/profile/mirlo.space)
-- [Infrastructure Is a Business Decision — Field Note 012](https://atmosphere.loptrlab.com/)
+- [Field Notes archive](https://atmosphere.loptrlab.com/field-notes/)
+- [Field Note 012 — Your Infrastructure Is a Business Decision](https://atmosphere.loptrlab.com/field-notes/your-infrastructure-is-a-business-decision/)
+- [PDS Independence Kit source (GitHub)](https://github.com/ibloud/pixie-device-stewardship/tree/main/tools/atmosphere-guide/pds-kit)
+
 
 *No sponsorship, affiliate relationship, referral commission, or promotional obligation to Mirlo, Bandcamp, or any hosting provider. This is an independent field note documenting an ongoing investigation.*
