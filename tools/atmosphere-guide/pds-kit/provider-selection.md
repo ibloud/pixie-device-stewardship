@@ -26,7 +26,6 @@ These are candidates for testing, not rankings or sponsorships:
 
 Before recommending a provider, conduct a dated audit and test the dashboard. We will not infer accessibility or ethical performance from marketing language.
 
-## Minimum server requirements
+## Reference VPS requirements and sizing
 
-Use the official PDS repository's current requirements, not this document as a substitute. Its current self-hosting guide describes a small VPS baseline around 1 CPU, 1 GB RAM and 20 GB SSD for a modest deployment, plus a public IPv4 address, DNS and inbound HTTP/HTTPS. Requirements may change.
-
+The [official VPS instructions](https://github.com/bluesky-social/pds#deploying-a-pds-onto-a-vps) require public IPv4, public DNS and inbound TCP ports 80 and 443. For 1–20 users, Bluesky recommends one CPU core, 1 GB RAM and 20 GB SSD. Managed services have their own provisioning requirements.

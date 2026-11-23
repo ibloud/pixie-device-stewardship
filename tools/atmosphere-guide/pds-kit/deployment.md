@@ -17,7 +17,7 @@ This is the low-risk route: create a new account on the PDS you control, rather 
 - [ ] Restrict SSH to trusted sources where possible; use key authentication.
 - [ ] Open only the ports required by the current official deployment (commonly 80/443; SSH access must be secured).
 - [ ] Add DNS records exactly as the provider and official PDS instructions require.
-- [ ] Verify DNS propagation and TLS before creating an account.
+- [ ] Verify DNS before running the installer. Its bundled Caddy service provisions TLS. Verify HTTPS after startup.
 - [ ] Run `scripts/pds-preflight.sh` to collect read-only system checks.
 - [ ] Download the pinned official installer with `scripts/prepare-installer.sh`, review its source and checksum, then run it only if you choose using `scripts/run-reviewed-installer.sh` (requires explicit typed confirmation and sudo). The official installer is interactive; read each prompt carefully.
 

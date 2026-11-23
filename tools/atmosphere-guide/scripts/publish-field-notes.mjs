@@ -10,6 +10,9 @@ await mkdir(path.dirname(publicCss), { recursive: true });
 await copyFile(sourceCss, publicCss);
 
 const required = [
+  "field-notes/what-are-we-asking-people-to-pay-for/index.html",
+  "field-notes/what-can-we-leave-behind/index.html",
+
   "field-notes/index.html",
   "field-notes/an-artist-should-be-a-node-not-a-tenant/index.html",
   "field-notes/your-infrastructure-is-a-business-decision/index.html",

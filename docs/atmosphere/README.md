@@ -117,3 +117,10 @@ Sharing plan: Atmosphere Community is excluded at the owner's request because it
 Suggested social copy (under 300 characters):
 
 Greetings, exploring the Atmosphere? Our open-source guide explains accounts, apps and migration choices. PIXIE’s role, consent boundaries and sources are explicit. Accessibility and factual corrections welcome: https://atmosphere.loptrlab.com/
+
+
+## Build-path resource review — November 7, 2026 (unreleased)
+
+Reuse the existing Build path; no category was added. Tangled’s official site/docs, AT Protocol’s SDK directory and Lexicon development guide, and the official Indigo Tap directory/README support four missing coding-resource entries. Existing PDSls and schema examples remain. Links provide source-bounded discovery, not verified account, hosting, accessibility or integration acceptance. Upstream maintainers retain their licenses; no endorsement or partnership is implied. These tools do not replace Made-Sick’s personal/professional/civic cards.
+
+The maintained source is tools/atmosphere-guide/src/App.jsx in this repository. The separate atmosphere-field-guide deployment builds this source only after a later approved deployment workflow. Do not publish or update main for this review.
