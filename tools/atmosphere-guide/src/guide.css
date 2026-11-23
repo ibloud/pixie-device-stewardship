@@ -9,6 +9,13 @@
   --site-focus: #5de8ff;
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper: #d5cedb; --surface: #e4deea; --ink: #211c27;
+  --muted: #514757; --petrol: #613e7d; --ochre: #d92f64;
+  --plum: #514757; --line: #a79aad; --control-ink: #fff;
+  --site-focus: #613e7d;
+}
 /* System is the default; explicit choices override it without changing page CSS. */
 :root[data-theme="dark"] {
   color-scheme: dark;
