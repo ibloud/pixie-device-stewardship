@@ -169,7 +169,10 @@ footer strong { max-width: 22ch; }
 .adventure-builder { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 20px; margin-top: 20px; }
 .adventure-builder label { display: grid; gap: 6px; font-weight: 650; font-size: .95rem; }
 .adventure-builder input,.adventure-builder textarea,.adventure-builder select { width: 100%; min-height: 44px; border: 1px solid var(--line); border-radius: 5px; padding: 10px 12px; font: inherit; color: var(--ink); background: var(--surface); }
-.adventure-builder textarea { resize: vertical; }\n.adventure-builder label:nth-of-type(4),.adventure-builder label:nth-of-type(7),.adventure-builder .adventure-builder-actions,.adventure-builder .generated-label,.adventure-builder .generated-prompt,.adventure-builder .builder-note { grid-column: 1 / -1; }\n.adventure-builder .generated-prompt { width: 100%; }\n.adventure-builder .builder-note { margin: 0; }
+.adventure-builder textarea { resize: vertical; }
+.adventure-builder label:nth-of-type(4),.adventure-builder label:nth-of-type(7),.adventure-builder .adventure-builder-actions,.adventure-builder .generated-label,.adventure-builder .generated-prompt,.adventure-builder .builder-note { grid-column: 1 / -1; }
+.adventure-builder .generated-prompt { width: 100%; }
+.adventure-builder .builder-note { margin: 0; }
 .adventure-builder input:focus-visible,.adventure-builder textarea:focus-visible,.adventure-builder select:focus-visible { outline: 3px solid var(--petrol); outline-offset: 3px; }
 .adventure-builder-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .adventure-builder-actions button { min-height: 44px; }
