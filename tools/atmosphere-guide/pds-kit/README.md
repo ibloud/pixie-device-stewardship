@@ -36,6 +36,7 @@ Read [migration.md](migration.md) and the official [Account Migration guide](htt
 ## Files
 
 - `provider-selection.md` — values-based host evaluation.
+- `provider-sustainability.md` — illustrative hosting economics, service tiers, reserves, and a ten-year stewardship model.
 - `deployment.md` — new-account deployment and validation.
 - `migration.md` — migration stages, safety gates and rollback boundary.
 - `scripts/pds-preflight.sh` — read-only server checks.
