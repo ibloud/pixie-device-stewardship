@@ -10,6 +10,9 @@ await mkdir(path.dirname(publicCss), { recursive: true });
 await copyFile(sourceCss, publicCss);
 
 const breadcrumbData = {
+  "field-notes/the-architecture-of-silence/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["The Architecture of Silence", "https://atmosphere.loptrlab.com/field-notes/the-architecture-of-silence/"]],
+  "field-notes/who-owns-the-record/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["Who Owns the Record?", "https://atmosphere.loptrlab.com/field-notes/who-owns-the-record/"]],
+  "field-notes/accessibility-is-not-a-favor/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["Accessibility Is Not a Favor", "https://atmosphere.loptrlab.com/field-notes/accessibility-is-not-a-favor/"]],
   "field-notes/the-reality-of-change/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["The Reality of Change", "https://atmosphere.loptrlab.com/field-notes/the-reality-of-change/"]],
   "field-notes/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"]],
   "field-notes/an-artist-should-be-a-node-not-a-tenant/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["An Artist Should Be a Node, Not a Tenant", "https://atmosphere.loptrlab.com/field-notes/an-artist-should-be-a-node-not-a-tenant/"]],
@@ -17,6 +20,9 @@ const breadcrumbData = {
 };
 
 const required = [
+  "field-notes/the-architecture-of-silence/index.html",
+  "field-notes/who-owns-the-record/index.html",
+  "field-notes/accessibility-is-not-a-favor/index.html",
   "field-notes/the-reality-of-change/index.html",
   "field-notes/index.html",
   "field-notes/an-artist-should-be-a-node-not-a-tenant/index.html",
