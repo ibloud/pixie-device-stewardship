@@ -10,12 +10,14 @@ await mkdir(path.dirname(publicCss), { recursive: true });
 await copyFile(sourceCss, publicCss);
 
 const breadcrumbData = {
+  "field-notes/the-reality-of-change/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["The Reality of Change", "https://atmosphere.loptrlab.com/field-notes/the-reality-of-change/"]],
   "field-notes/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"]],
   "field-notes/an-artist-should-be-a-node-not-a-tenant/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["An Artist Should Be a Node, Not a Tenant", "https://atmosphere.loptrlab.com/field-notes/an-artist-should-be-a-node-not-a-tenant/"]],
   "field-notes/your-infrastructure-is-a-business-decision/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["Your Infrastructure Is a Business Decision", "https://atmosphere.loptrlab.com/field-notes/your-infrastructure-is-a-business-decision/"]],
 };
 
 const required = [
+  "field-notes/the-reality-of-change/index.html",
   "field-notes/index.html",
   "field-notes/an-artist-should-be-a-node-not-a-tenant/index.html",
   "field-notes/your-infrastructure-is-a-business-decision/index.html",
