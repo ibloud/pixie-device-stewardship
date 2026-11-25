@@ -10,6 +10,9 @@ await mkdir(path.dirname(publicCss), { recursive: true });
 await copyFile(sourceCss, publicCss);
 
 const breadcrumbData = {
+  "field-notes/beyond-the-personal-data-server/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["Beyond the Personal Data Server", "https://atmosphere.loptrlab.com/field-notes/beyond-the-personal-data-server/"]],
+  "field-notes/people-over-profit/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["People Over Profit", "https://atmosphere.loptrlab.com/field-notes/people-over-profit/"]],
+
   "field-notes/protecting-creative-work-on-an-independent-budget/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["Protecting Creative Work on an Independent Budget", "https://atmosphere.loptrlab.com/field-notes/protecting-creative-work-on-an-independent-budget/"]],
   "field-notes/the-architecture-of-silence/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["The Architecture of Silence", "https://atmosphere.loptrlab.com/field-notes/the-architecture-of-silence/"]],
   "field-notes/who-owns-the-record/index.html": [["Loptr Lab", "https://atmosphere.loptrlab.com/"], ["Field Notes", "https://atmosphere.loptrlab.com/field-notes/"], ["Who Owns the Record?", "https://atmosphere.loptrlab.com/field-notes/who-owns-the-record/"]],
@@ -21,6 +24,8 @@ const breadcrumbData = {
 };
 
 const required = [
+  "field-notes/beyond-the-personal-data-server/index.html",
+  "field-notes/people-over-profit/index.html",
   "field-notes/protecting-creative-work-on-an-independent-budget/index.html",
   "field-notes/the-architecture-of-silence/index.html",
   "field-notes/who-owns-the-record/index.html",
