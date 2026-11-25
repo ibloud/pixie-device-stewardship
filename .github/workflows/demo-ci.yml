@@ -31,3 +31,18 @@ jobs:
       - name: Build guide and verify Field Notes publication
         working-directory: tools/atmosphere-guide
         run: npm ci && npm run build
+
+  notify-atmosphere-production:
+    needs: [test, atmosphere-guide-build]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Request publication from the Pages repository
+        env:
+          GH_TOKEN: ${{ secrets.ATMOSPHERE_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Configure ATMOSPHERE_DEPLOY_TOKEN with Actions write access to ibloud/atmosphere-field-guide. Scheduled synchronization remains available."
+            exit 1
+          fi
+          gh workflow run deploy.yml --repo ibloud/atmosphere-field-guide --ref main
