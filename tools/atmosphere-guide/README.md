@@ -18,6 +18,14 @@ The Field Notes archive contains standalone articles, with each article linking 
 - [Field Note 012 — Your Infrastructure Is a Business Decision](https://atmosphere.loptrlab.com/field-notes/your-infrastructure-is-a-business-decision/)
 - [Field Note 013 — An Artist Should Be a Node, Not a Tenant](https://atmosphere.loptrlab.com/field-notes/an-artist-should-be-a-node-not-a-tenant/)
 
+## Digital sovereignty series (review)
+
+- [Beyond the Personal Data Server](https://atmosphere.loptrlab.com/field-notes/beyond-the-personal-data-server/)
+- [People Over Profit](https://atmosphere.loptrlab.com/field-notes/people-over-profit/)
+- Companion entry: [Your PDS, Your Terms — Play It Forward](https://loptr-lab.github.io/pay-it-forward/field-notes/your-pds-your-terms/)
+
+Public routes require source merge and deployment verification. Feedback via existing GitHub issues.
+
 ## Recent merged changes
 
 The source has been updated through the following merged PRs:
